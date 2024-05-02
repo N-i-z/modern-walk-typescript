@@ -1,0 +1,102 @@
+.homeTitle {
+  margin-top: 50px;
+  margin-bottom: 0%;
+  text-align: center;
+  font-size: 30px;
+  align-items: center;
+}
+.home .flash-sale {
+  width: 80%;
+  height: auto;
+  align-items: center;
+  margin-left: 200px;
+}
+
+h2 {
+  margin-top: 50px;
+  margin-bottom: 0;
+  font-size: 35px;
+  text-align: left;
+  margin-left: 50px;
+}
+
+.products {
+  width: 20%;
+  height: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  place-items: center;
+}
+
+.product-card {
+  border-radius: 30px;
+  background-color: #ffffff;
+  width: 300px;
+  height: 350px;
+  margin: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 3px 3px 1px 1px #ebebeb;
+}
+
+.product-card img {
+  width: 200px;
+}
+
+.product-card .details-male {
+  text-align: center;
+  background-color: #bff4e7;
+  border-radius: 30px;
+  box-shadow: 3px 3px 1px 1px #ebebeb;
+}
+
+.product-card .details-female {
+  text-align: center;
+  background-color: #ffbece;
+  border-radius: 30px;
+  box-shadow: 3px 3px 1px 1px #ebebeb;
+}
+
+.categories h2 {
+  margin-left: 250px;
+  margin-bottom: 30px;
+}
+
+.home .categories .cat {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.home .categories .cat .cat1,
+.home .categories .cat .cat2 {
+  font-size: 50px;
+  flex: 1; /* Distribute space evenly between cat1 and cat2 */
+  height: 150px;
+  border-radius: 40px;
+  display: flex; /* Enable flexbox layout */
+  align-items: center; /* Align content vertically */
+  justify-content: center; /* Align content horizontally */
+  color: white; /* Text color */
+}
+.home .categories .cat1 {
+  background-color: #bff4e7;
+  margin-left: 100px;
+  margin-right: 100px;
+}
+
+.home .categories .cat2 {
+  background-color: #ffbece;
+  margin-right: 100px;
+}
+
+.home .categories .cat .catlink {
+  color: white;
+  text-decoration: none;
+}
+
+.product-card:hover {
+  transition: 0.3s ease-in;
+  cursor: pointer;
+}
