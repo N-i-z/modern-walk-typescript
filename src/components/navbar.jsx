@@ -10,10 +10,10 @@ export const Navbar = () => {
         <Link to={"/"} className="logo-container">
           <img className="logo" src={logo} alt="logo"></img>
         </Link>
-        <Link className="men" to={"men's clothing"}>
+        <Link className="men" to={"mens-clothing"}>
           Men's Clothing
         </Link>
-        <Link className="women" to={"women's clothing"}>
+        <Link className="women" to={"womens-clothing"}>
           Women's Clothing
         </Link>
       </div>

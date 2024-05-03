@@ -5,12 +5,16 @@ import "./home.css";
 import { Link } from "react-router-dom";
 
 export const Home = () => {
-  const productsToShow = PRODUCTS.slice(0, 4);
+  const productsToShow = PRODUCTS; /*.slice(0, 4);*/
 
   return (
     <div className="home">
       <div className="homeTitle">
-        <h1>Modern Walk</h1>
+        <h1>
+          <Link to="./" className="titleLink">
+            Modern Walk
+          </Link>
+        </h1>
       </div>
       <hr></hr>
       <div className="flash-sale">
@@ -25,12 +29,12 @@ export const Home = () => {
         <h2>Categories</h2>
         <div className="cat">
           <div className="cat1">
-            <Link to="/men's clothing" className="catlink">
+            <Link to="/mens-clothing" className="catLink">
               <b>Men's clothing</b>
             </Link>
           </div>
           <div className="cat2">
-            <Link to="/women's clothing" className="catlink">
+            <Link to="/womens-clothing" className="catLink">
               <b>Women's clothing</b>
             </Link>
           </div>

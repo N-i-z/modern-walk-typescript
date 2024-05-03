@@ -2,8 +2,8 @@ import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Navbar } from "./components/navbar";
 import { Home } from "./pages/home/home";
-import { MensClothing } from "./pages/men's clothing/men's clothing";
-import { WomensClothing } from "./pages/women's clothing/women's clothing";
+import { MensClothing } from "./pages/men's clothing/mens-clothing";
+import { WomensClothing } from "./pages/women's clothing/womens-clothing";
 
 const MensClothingCategory = () => {
   return <MensClothing />;
@@ -20,11 +20,8 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/men's clothing" element={<MensClothingCategory />} />
-          <Route
-            path="/women's clothing"
-            element={<WomensClothingCategory />}
-          />
+          <Route path="/mens-clothing" element={<MensClothingCategory />} />
+          <Route path="/womens-clothing" element={<WomensClothingCategory />} />
         </Routes>
       </Router>
     </div>

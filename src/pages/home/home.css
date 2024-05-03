@@ -12,6 +12,11 @@
   margin-left: 200px;
 }
 
+.home .homeTitle .titleLink {
+  color: black;
+  text-decoration: none;
+}
+
 h2 {
   margin-top: 50px;
   margin-bottom: 0;
@@ -91,7 +96,7 @@ h2 {
   margin-right: 100px;
 }
 
-.home .categories .cat .catlink {
+.home .categories .cat .catLink {
   color: white;
   text-decoration: none;
 }
