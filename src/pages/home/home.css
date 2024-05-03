@@ -9,7 +9,7 @@
   width: 80%;
   height: auto;
   align-items: center;
-  margin-left: 200px;
+  margin-left: 0;
 }
 
 .home .homeTitle .titleLink {
@@ -25,19 +25,25 @@ h2 {
   margin-left: 50px;
 }
 
-.products {
-  width: 20%;
-  height: auto;
+.products-container {
+  width: 90%;
+  min-height: 80vh;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  place-items: center;
+  grid-template-columns: repeat(4, 1fr);
+  justify-items: center;
+  padding: 10px;
+}
+
+.card .card-title h3 {
+  font-size: 15px;
+  margin-top: 5px;
 }
 
 .product-card {
   border-radius: 30px;
   background-color: #ffffff;
   width: 300px;
-  height: 350px;
+  height: 300px;
   margin: 40px;
   display: flex;
   flex-direction: column;
@@ -46,24 +52,18 @@ h2 {
   box-shadow: 3px 3px 1px 1px #ebebeb;
 }
 
+.description-container {
+  height: auto;
+  border-radius: 30px;
+  display: flex;
+  align-items: justify;
+  flex-direction: column;
+  margin-top: 40px;
+}
+
 .product-card img {
   width: 200px;
 }
-
-.product-card .details-male {
-  text-align: center;
-  background-color: #bff4e7;
-  border-radius: 30px;
-  box-shadow: 3px 3px 1px 1px #ebebeb;
-}
-
-.product-card .details-female {
-  text-align: center;
-  background-color: #ffbece;
-  border-radius: 30px;
-  box-shadow: 3px 3px 1px 1px #ebebeb;
-}
-
 .categories h2 {
   margin-left: 250px;
   margin-bottom: 30px;

@@ -1,28 +1,16 @@
 import React from "react";
-import { PRODUCTS } from "../../products";
-import { Product } from "./product";
+import Product from "./product";
 import "./home.css";
 import { Link } from "react-router-dom";
 
 export const Home = () => {
-  const productsToShow = PRODUCTS; /*.slice(0, 4);*/
-
   return (
     <div className="home">
-      <div className="homeTitle">
-        <h1>
-          <Link to="./" className="titleLink">
-            Modern Walk
-          </Link>
-        </h1>
-      </div>
       <hr></hr>
       <div className="flash-sale">
         <h2>Flash Sale</h2>
         <div className="products">
-          {productsToShow.map((product) => (
-            <Product data={product} />
-          ))}
+          <Product />
         </div>
       </div>
       <div className="categories">
