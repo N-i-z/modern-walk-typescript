@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import "../../components/clothing.css";
+import "./clothing.css";
 
-const Products = () => {
+const Products = ({ url, descriptionBackgroundColor }) => {
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState([]);
 
@@ -10,7 +10,7 @@ const Products = () => {
     setLoading(true);
     axios({
       method: "GET",
-      url: "https://fakestoreapi.com/products/category/women's clothing",
+      url: url,
     })
       .then((res) => {
         console.log(res.data);
@@ -39,7 +39,7 @@ const Products = () => {
           </div>
           <div
             className="card-description"
-            style={{ backgroundColor: "#ffbece" }}
+            style={{ backgroundColor: descriptionBackgroundColor }}
           >
             <h4>{`Rs ${Product.price}`}</h4>
             <br></br>
