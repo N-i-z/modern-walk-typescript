@@ -1,6 +1,6 @@
 import React from "react";
-import Products from "./product";
-import "../../components/clothing.css";
+import Products from "../../components/products/product";
+import "../../components/products/clothing.css";
 
 export function WomensClothing() {
   return (
@@ -8,7 +8,10 @@ export function WomensClothing() {
       <div className="heading">
         <h1>Women's Clothing</h1>
       </div>
-      <Products />
+      <Products
+        url="https://fakestoreapi.com/products/category/women's clothing"
+        descriptionBackgroundColor={"#ffbece"}
+      />
     </div>
   );
 }
