@@ -1,11 +1,11 @@
 import React from "react";
 import Products from "./product";
-import "./mens-clothing.css";
+import "../../components/clothing.css";
 
 export function MensClothing() {
   return (
-    <div className="content1">
-      <div className="heading1">
+    <div className="content">
+      <div className="heading">
         <h1>Men's Clothing</h1>
       </div>
       <Products />

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import "./womens-clothing.css";
+import "../../components/clothing.css";
 
 const Products = () => {
   const [loading, setLoading] = useState(false);
@@ -37,7 +37,10 @@ const Products = () => {
           <div>
             <img src={Product.image} alt="product" />
           </div>
-          <div className="card-description">
+          <div
+            className="card-description"
+            style={{ backgroundColor: "#ffbece" }}
+          >
             <h4>{`Rs ${Product.price}`}</h4>
             <br></br>
             <p>{Product.description}</p>

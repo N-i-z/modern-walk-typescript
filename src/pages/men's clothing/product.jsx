@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import "./mens-clothing.css";
+import "../../components/clothing.css";
 
 const Products = () => {
   const [loading, setLoading] = useState(false);
@@ -21,15 +21,15 @@ const Products = () => {
   }, []);
 
   return (
-    <div className="products-container1">
+    <div className="products-container">
       {loading && (
         <div>
           <h1>Loading...</h1>
         </div>
       )}
       {data.map((Product) => (
-        <div key={Product.id} className="card1">
-          <div className="card-title1">
+        <div key={Product.id} className="card">
+          <div className="card-title">
             <h3>
               <b>{Product.title}</b>
             </h3>
@@ -37,7 +37,10 @@ const Products = () => {
           <div>
             <img src={Product.image} alt="product" />
           </div>
-          <div className="card-description1">
+          <div
+            className="card-description"
+            style={{ backgroundColor: "#bff4e7" }}
+          >
             <h4>{`Rs ${Product.price}`}</h4>
             <br></br>
             <p>{Product.description}</p>

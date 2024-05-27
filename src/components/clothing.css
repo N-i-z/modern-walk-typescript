@@ -27,7 +27,7 @@ img:hover {
   border-radius: 30px;
   background-color: #ffffff;
   width: 400px;
-  height: auto;
+  height: 600px;
   margin: 40px;
   display: flex;
   flex-direction: column;
@@ -36,20 +36,19 @@ img:hover {
   box-shadow: 3px 3px 1px 1px #ebebeb;
 }
 .card .card-title h3 {
-  font-size: 15px;
+  font-size: 20px;
   margin-top: 5px;
 }
 
 .card-description {
-  height: 350px;
+  height: 500px;
   border-radius: 30px;
   display: flex;
   align-items: justify;
   flex-direction: column;
   margin-top: 40px;
-  background-color: #ffbece;
 }
-.content .heading h1 {
+.content .heading1 h1 {
   text-align: left;
   margin-left: 50px;
   margin-top: 30px;

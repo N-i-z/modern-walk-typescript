@@ -1,6 +1,6 @@
 import React from "react";
 import Products from "./product";
-import "./womens-clothing.css";
+import "../../components/clothing.css";
 
 export function WomensClothing() {
   return (
