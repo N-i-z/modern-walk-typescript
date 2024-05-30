@@ -1,0 +1,32 @@
+.categories {
+  display: flex;
+  margin-left: 70px;
+}
+
+.categories .catLink {
+  font-size: 50px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 100px;
+}
+.categories .catLink .men {
+  background-color: #2bd9af;
+}
+
+.categories .catLink .women {
+  background-color: #ff5e84;
+}
+
+.categories .catLink .link {
+  color: #ffffff;
+}
+
+.categories .men,
+.categories .women {
+  display: flex;
+  width: 600px;
+  height: 200px;
+  border-radius: 30px;
+  justify-content: center;
+  align-items: center;
+}
