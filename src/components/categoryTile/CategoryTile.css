@@ -7,7 +7,7 @@
   font-size: 50px;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-gap: 100px;
+  grid-gap: 50px;
 }
 .categories .catLink .men {
   background-color: #2bd9af;
@@ -24,8 +24,8 @@
 .categories .men,
 .categories .women {
   display: flex;
-  width: 600px;
-  height: 200px;
+  width: 630px;
+  height: 300px;
   border-radius: 30px;
   justify-content: center;
   align-items: center;
