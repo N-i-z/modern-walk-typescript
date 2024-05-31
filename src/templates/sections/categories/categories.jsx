@@ -1,22 +1,23 @@
 import React from "react";
-import "../../../components/categoryTile/CategoryTile.css";
-
-import { Link } from "react-router-dom";
+import CategoryTile from "../../../components/categoryTile/CategoryTile";
+import "./categories.css";
 
 const Categories = () => {
   return (
     <div className="categories">
       <div className="catLink">
-        <div className="men">
-          <Link to="/mens-clothing" className="link">
-            <b>Men's clothing</b>
-          </Link>
-        </div>
-        <div className="women">
-          <Link to="/womens-clothing" className="link">
-            <b>Women's clothing</b>
-          </Link>
-        </div>
+        <CategoryTile
+          category="Men's clothing"
+          url="/mens-clothing"
+          backgroundColor="#2bd9af"
+          hoverBackgroundColor="#239b85" // Darker shade for hover effect
+        />
+        <CategoryTile
+          category="Women's clothing"
+          url="/womens-clothing"
+          backgroundColor="#ff5e84"
+          hoverBackgroundColor="#cc4b69" // Darker shade for hover effect
+        />
       </div>
     </div>
   );

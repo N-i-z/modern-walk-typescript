@@ -1,7 +1,7 @@
 import React from "react";
-import FlashSale from "../../components/flash sale/FlashSale.js";
-import CategoryTiles from "../../components/categoryTile/CategoryTile.js";
-import Heading from "../../components/typography/Heading.js";
+import FlashSale from "../../components/flash sale/FlashSale.jsx";
+import Categories from "../sections/categories/categories.jsx";
+import Heading from "../../components/typography/Heading.jsx";
 import "../../components/productCard/ProductCard.css";
 import "../../components/typography/Heading.css";
 
@@ -11,7 +11,7 @@ const Home = () => {
       <Heading variant="h2">Flash Sale</Heading>
       <FlashSale />
       <Heading variant="h2">Categories</Heading>
-      <CategoryTiles />
+      <Categories />
     </div>
   );
 };

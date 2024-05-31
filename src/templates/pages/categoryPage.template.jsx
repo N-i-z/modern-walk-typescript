@@ -1,10 +1,10 @@
 import React from "react";
-import ProductCard from "../../components/productCard/ProductCard.js";
-import Heading from "../../components/typography/Heading.js";
+import ProductCard from "../../components/productCard/ProductCard.jsx";
+import Heading from "../../components/typography/Heading.jsx";
 import "../../components/productCard/ProductCard.css";
 import "../../components/typography/Heading.css";
 import useFetchProducts from "../../hooks/useFetchProducts";
-import Loading from "../../components/loading/Loading.js";
+import Loading from "../../components/loading/Loading.jsx";
 
 export function WomensClothing() {
   return (
