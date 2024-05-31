@@ -1,14 +1,17 @@
 .categories {
   display: flex;
-  margin-left: 70px;
+  margin-left: 3%;
+  margin-right: 5%;
+  margin-top: 2%;
 }
 
 .categories .catLink {
-  font-size: 50px;
+  font-size: 3vw; /* This will make the font size responsive */
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-gap: 50px;
+  grid-gap: 8vw; /* Use vw units for gap to keep it proportional */
 }
+
 .categories .catLink .men {
   background-color: #2bd9af;
 }
@@ -19,14 +22,21 @@
 
 .categories .catLink .link {
   color: #ffffff;
+  text-decoration: none; /* Ensure the links have no underline */
 }
 
 .categories .men,
 .categories .women {
   display: flex;
-  width: 630px;
-  height: 300px;
-  border-radius: 30px;
+  width: 40vw; /* Use vw for responsive width */
+  height: 30vh; /* Use vh for responsive height */
+  border-radius: 40px; /* Use vw for responsive border radius */
   justify-content: center;
   align-items: center;
+  transition: transform 0.2s; /* Add a transition for smooth hover effect */
+}
+
+.categories .men:hover,
+.categories .women:hover {
+  transform: scale(1.05); /* Slightly enlarge on hover */
 }

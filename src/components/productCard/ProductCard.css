@@ -22,7 +22,7 @@
 /* Style for the product image */
 img {
   width: auto;
-  height: 160px;
+  height: 190px;
   transition: transform 0.3s ease;
   margin: 20px;
 }
@@ -36,8 +36,8 @@ img:hover {
 .card {
   border-radius: 50px;
   background-color: #ffffff;
-  width: 315px;
-  height: 450px;
+  width: 420px;
+  height: 550px;
   max-width: 800px;
   margin: 10px;
   margin-bottom: 50px;
@@ -51,7 +51,7 @@ img:hover {
 
 /* Style for the card title */
 .card .card-title h3 {
-  font-size: 20px;
+  font-size: 25px;
   margin-top: 30px;
   margin-left: 50px;
   margin-right: 50px;
@@ -60,13 +60,13 @@ img:hover {
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
-  max-width: 240px;
+  max-width: 300px;
 }
 
 /* Style for the card description */
 .card-description {
   width: 100%;
-  height: 190px;
+  height: 210px;
   padding: 20px;
   background-color: #bff4e7;
   border-radius: 40px 40px 0px 0px;
@@ -74,7 +74,7 @@ img:hover {
 
 /* Style for the card description text */
 .card-description p {
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.5;
   margin: 0;
   text-align: center;
@@ -95,6 +95,6 @@ img:hover {
 
 .card-description h4 {
   color: #0e42fd;
-  font-size: 25px;
+  font-size: 30px;
   text-align: center;
 }
