@@ -22,7 +22,7 @@
 
 .categories .catLink .link {
   color: #ffffff;
-  text-decoration: none; /* Ensure the links have no underline */
+  text-decoration: none;
 }
 
 .categories .men,
