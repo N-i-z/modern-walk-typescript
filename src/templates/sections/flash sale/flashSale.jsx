@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import "../../../components/flash sale/FlashSale.css";
+import "./flashSale.css";
 import ProductCard from "../../../components/productCard/ProductCard";
 import Loading from "../../../components/loading/Loading";
 
-const FlashSaleProductRendering = () => {
+const FlashSale = () => {
   const [loading, setLoading] = useState(false);
   const [menProducts, setMenProducts] = useState([]);
   const [womenProducts, setWomenProducts] = useState([]);
@@ -75,4 +75,4 @@ const FlashSaleProductRendering = () => {
   );
 };
 
-export default FlashSaleProductRendering;
+export default FlashSale;
