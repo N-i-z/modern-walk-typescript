@@ -1,14 +1,16 @@
 .category-tile {
-  display: flex; /* Use flex to center content */
-  flex-grow: 1;
-  height: 20vh;
-  border-radius: 2vw;
+  display: flex;
   justify-content: center;
   align-items: center;
-  transition: transform 0.2s, background-color 0.2s;
+  transition: background-color 0.2s, transform 0.2s;
+  border-radius: 2vw;
+  min-width: 300px;
+  height: 30vh;
 }
 
 .category-tile .link {
   color: #ffffff;
   text-decoration: none;
+  font-size: 2rem; /* Adjusted to fit better */
+  text-align: center;
 }
