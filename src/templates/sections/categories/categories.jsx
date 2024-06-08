@@ -1,5 +1,5 @@
 import React from "react";
-import CategoryTile from "../../../components/categoryTile/CategoryTile";
+import CategoryTile from "../../../components/categoryTile/CategoryTile.tsx";
 import "./categories.css";
 
 const Categories = () => {
