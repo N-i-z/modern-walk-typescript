@@ -1,6 +1,13 @@
 import React from "react";
-import PropTypes from "prop-types";
 import "./ProductCard.css";
+
+interface ProductCardProps {
+  title: string;
+  image: string;
+  price: string;
+  description: string;
+  descriptionBackgroundColor: string;
+}
 
 const ProductCard = ({
   title,
@@ -8,7 +15,7 @@ const ProductCard = ({
   price,
   description,
   descriptionBackgroundColor,
-}) => {
+}: ProductCardProps) => {
   return (
     <div className="card">
       <div className="card-title">
@@ -31,15 +38,4 @@ const ProductCard = ({
   );
 };
 
-ProductCard.propTypes = {
-  title: PropTypes.string.isRequired,
-  image: PropTypes.string.isRequired,
-  price: PropTypes.number.isRequired,
-  description: PropTypes.string.isRequired,
-  descriptionBackgroundColor: PropTypes.string,
-};
-
-ProductCard.defaultProps = {
-  descriptionBackgroundColor: "#bff4e7",
-};
 export default ProductCard;

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./flashSale.css";
-import ProductCard from "../../../components/productCard/ProductCard";
+import ProductCard from "../../../components/productCard/ProductCard.tsx";
 import Loading from "../../../components/loading/Loading.tsx";
 
 const FlashSale = () => {

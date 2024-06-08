@@ -1,5 +1,5 @@
 import React from "react";
-import ProductCard from "../../components/productCard/ProductCard.jsx";
+import ProductCard from "../../components/productCard/ProductCard.tsx";
 import Heading from "../../components/typography/Heading.jsx";
 import "../../components/productCard/ProductCard.css";
 import "../../components/typography/Heading.css";
