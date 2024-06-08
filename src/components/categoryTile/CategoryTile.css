@@ -4,7 +4,7 @@
   align-items: center;
   transition: background-color 0.2s, transform 0.2s;
   border-radius: 2vw;
-  min-width: 300px;
+  width: 45vw;
   height: 30vh;
 }
 
