@@ -2,7 +2,7 @@ import React from "react";
 import "./Loading.css";
 
 interface LoadingProps {
-  message: string;
+  message?: string;
 }
 
 const Loading = ({ message = "Loading..." }: LoadingProps) => {
