@@ -6,20 +6,12 @@ interface LoadingProps {
   message: string;
 }
 
-const Loading = ({ message }: LoadingProps) => {
+const Loading = ({ message = "Loading..." }: LoadingProps) => {
   return (
     <div className="Loading">
       <h1>{message}</h1>
     </div>
   );
-};
-
-Loading.propTypes = {
-  message: PropTypes.string,
-};
-
-Loading.defaultProps = {
-  message: "Loading...",
 };
 
 export default Loading;
