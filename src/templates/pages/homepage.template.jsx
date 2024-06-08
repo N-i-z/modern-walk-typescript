@@ -1,7 +1,7 @@
 import React from "react";
 import FlashSale from "../sections/flash sale/flashSale.jsx";
 import Categories from "../sections/categories/categories.jsx";
-import Heading from "../../components/typography/Heading.jsx";
+import Heading from "../../components/typography/Heading.tsx";
 import "../../components/productCard/ProductCard.css";
 import "../../components/typography/Heading.css";
 
