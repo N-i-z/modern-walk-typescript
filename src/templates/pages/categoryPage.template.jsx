@@ -4,7 +4,7 @@ import Heading from "../../components/typography/Heading.jsx";
 import "../../components/productCard/ProductCard.css";
 import "../../components/typography/Heading.css";
 import useFetchProducts from "../../hooks/useFetchProducts";
-import Loading from "../../components/loading/Loading.jsx";
+import Loading from "../../components/loading/Loading.tsx";
 
 export function WomensClothing() {
   return (

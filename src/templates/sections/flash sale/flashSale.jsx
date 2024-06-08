@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./flashSale.css";
 import ProductCard from "../../../components/productCard/ProductCard";
-import Loading from "../../../components/loading/Loading";
+import Loading from "../../../components/loading/Loading.tsx";
 
 const FlashSale = () => {
   const [loading, setLoading] = useState(false);

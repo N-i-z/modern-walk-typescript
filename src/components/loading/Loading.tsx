@@ -2,7 +2,11 @@ import React from "react";
 import PropTypes from "prop-types";
 import "./Loading.css";
 
-const Loading = ({ message }) => {
+interface LoadingProps {
+  message: string;
+}
+
+const Loading = ({ message }: LoadingProps) => {
   return (
     <div className="Loading">
       <h1>{message}</h1>
