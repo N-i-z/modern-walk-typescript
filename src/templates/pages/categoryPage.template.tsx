@@ -6,6 +6,24 @@ import "../../components/typography/Heading.css";
 import useFetchProducts from "../../hooks/useFetchProducts";
 import Loading from "../../components/loading/Loading.tsx";
 
+interface ProductsProps {
+  url: string;
+  descriptionBackgroundColor: string;
+}
+
+interface Product {
+  id: number;
+  title: string;
+  image: string;
+  price: string;
+  description: string;
+}
+
+interface ProductListProps {
+  products: Product[];
+  descriptionBackgroundColor: string;
+}
+
 export function WomensClothing() {
   return (
     <div className="content">
@@ -34,7 +52,7 @@ export function MensClothing() {
   );
 }
 
-const Products = ({ url, descriptionBackgroundColor }) => {
+const Products = ({ url, descriptionBackgroundColor }: ProductsProps) => {
   const { loading, data } = useFetchProducts(url);
 
   return (
@@ -51,7 +69,10 @@ const Products = ({ url, descriptionBackgroundColor }) => {
   );
 };
 
-const ProductList = ({ products, descriptionBackgroundColor }) => {
+const ProductList = ({
+  products,
+  descriptionBackgroundColor,
+}: ProductListProps) => {
   return (
     <div className="products-container">
       {products.map((product) => (
