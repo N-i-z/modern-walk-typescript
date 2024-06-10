@@ -2,7 +2,7 @@ import React from "react";
 import CategoryTile from "../../../components/categoryTile/CategoryTile.tsx";
 import "./categories.css";
 
-const Categories = () => {
+const Categories: React.FC = () => {
   return (
     <div className="categories">
       <div className="catLink">
