@@ -6,7 +6,10 @@ interface HeadingProps {
   children: JSX.Element | JSX.Element[] | undefined | string;
 }
 
-const Heading = ({ variant, children }: HeadingProps) => {
+const Heading: React.FC<HeadingProps> = ({
+  variant,
+  children,
+}: HeadingProps) => {
   switch (variant) {
     case "h1":
       return <h1>{children}</h1>;
