@@ -3,10 +3,10 @@ import ProductCard from "../../components/productCard/ProductCard.tsx";
 import Heading from "../../components/typography/Heading.tsx";
 import "../../components/productCard/ProductCard.css";
 import "../../components/typography/Heading.css";
-import useFetchProducts from "../../hooks/useFetchProducts";
+import useFetchProducts from "../../hooks/useFetchProducts.ts";
 import Loading from "../../components/loading/Loading.tsx";
 
-interface Product {
+interface CategoryProduct {
   id: string;
   title: string;
   image: string;
@@ -68,7 +68,7 @@ const Products: React.FC<ProductsProps> = ({
 };
 
 interface ProductListProps {
-  products: Product[];
+  products: CategoryProduct[];
   descriptionBackgroundColor: string;
 }
 

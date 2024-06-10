@@ -3,8 +3,7 @@ import axios from "axios";
 import "./flashSale.css";
 import ProductCard from "../../../components/productCard/ProductCard.tsx";
 import Loading from "../../../components/loading/Loading.tsx";
-
-export interface Product {
+interface FlashSaleProduct {
   id: string;
   title: string;
   image: string;
@@ -15,8 +14,8 @@ export interface Product {
 
 const FlashSale: React.FC = () => {
   const [loading, setLoading] = useState<boolean>(false);
-  const [menProducts, setMenProducts] = useState<Product[]>([]);
-  const [womenProducts, setWomenProducts] = useState<Product[]>([]);
+  const [MensCloting, setMensCloting] = useState<FlashSaleProduct[]>([]);
+  const [WomensClothing, setWomensClothing] = useState<FlashSaleProduct[]>([]);
 
   useEffect(() => {
     setLoading(true);
@@ -29,20 +28,20 @@ const FlashSale: React.FC = () => {
       ])
       .then(
         axios.spread((menRes, womenRes) => {
-          const menProducts: Product[] = menRes.data
+          const MensCloting: FlashSaleProduct[] = menRes.data
             .slice(0, 2)
             .map((product: any) => ({
               ...product,
               category: "men",
             }));
-          const womenProducts: Product[] = womenRes.data
+          const WomensClothing: FlashSaleProduct[] = womenRes.data
             .slice(0, 2)
             .map((product: any) => ({
               ...product,
               category: "women",
             }));
-          setMenProducts(menProducts);
-          setWomenProducts(womenProducts);
+          setMensCloting(MensCloting);
+          setWomensClothing(WomensClothing);
         })
       )
       .catch((error) => {
@@ -52,15 +51,15 @@ const FlashSale: React.FC = () => {
   }, []);
 
   const renderAlternateProducts = () => {
-    const alternateProducts: Product[] = [];
-    const maxLength = Math.max(menProducts.length, womenProducts.length);
+    const alternateProducts: FlashSaleProduct[] = [];
+    const maxLength = Math.max(MensCloting.length, WomensClothing.length);
 
     for (let i = 0; i < maxLength; i++) {
-      if (i < menProducts.length) {
-        alternateProducts.push(menProducts[i]);
+      if (i < MensCloting.length) {
+        alternateProducts.push(MensCloting[i]);
       }
-      if (i < womenProducts.length) {
-        alternateProducts.push(womenProducts[i]);
+      if (i < WomensClothing.length) {
+        alternateProducts.push(WomensClothing[i]);
       }
     }
     return alternateProducts;
