@@ -4,7 +4,7 @@ import "./ProductCard.css";
 interface ProductCardProps {
   title: string;
   image: string;
-  price: string;
+  price: number;
   description: string;
   descriptionBackgroundColor: string;
 }

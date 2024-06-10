@@ -76,7 +76,7 @@ const FlashSale: React.FC = () => {
             key={product.id}
             title={product.title}
             image={product.image}
-            price={product.price.toString()}
+            price={product.price}
             description={product.description}
             descriptionBackgroundColor={
               product.category === "men" ? "#2BD9AF" : "#FF5E84"
