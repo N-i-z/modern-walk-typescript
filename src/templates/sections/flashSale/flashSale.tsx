@@ -4,7 +4,16 @@ import "./flashSale.css";
 import ProductCard from "../../../components/productCard/ProductCard.tsx";
 import Loading from "../../../components/loading/Loading.tsx";
 
-const FlashSale = () => {
+interface product {
+  id: string;
+  title: string;
+  image: string;
+  price: number;
+  description: string;
+  category: string;
+}
+
+const FlashSale: React.FC = () => {
   const [loading, setLoading] = useState(false);
   const [menProducts, setMenProducts] = useState([]);
   const [womenProducts, setWomenProducts] = useState([]);

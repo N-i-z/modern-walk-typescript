@@ -1,6 +1,6 @@
 import React from "react";
-import FlashSale from "../sections/flash sale/flashSale.jsx";
-import Categories from "../sections/categories/categories.jsx";
+import FlashSale from "../sections/flash sale/flashSale.tsx";
+import Categories from "../sections/categories/categories.tsx";
 import Heading from "../../components/typography/Heading.tsx";
 import "../../components/productCard/ProductCard.css";
 import "../../components/typography/Heading.css";
