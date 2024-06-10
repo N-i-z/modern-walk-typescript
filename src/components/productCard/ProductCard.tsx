@@ -4,7 +4,7 @@ import "./ProductCard.css";
 interface ProductCardProps {
   title: string;
   image: string;
-  price: string;
+  price: number;
   description: string;
   descriptionBackgroundColor: string;
 }
@@ -27,8 +27,11 @@ const ProductCard = ({
         <img src={image} alt={title} />
       </div>
       <div
-        className="card-description"
-        style={{ backgroundColor: descriptionBackgroundColor }}
+        className={`card-description ${
+          descriptionBackgroundColor === "#2BD9AF"
+            ? "men-background"
+            : "women-background"
+        }`}
       >
         <h4>{`Rs ${price}`}</h4>
         <br />

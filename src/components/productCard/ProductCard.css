@@ -98,3 +98,11 @@ img:hover {
   font-size: 30px;
   text-align: center;
 }
+
+.men-background {
+  background-color: #2bd9af;
+}
+
+.women-background {
+  background-color: #ff5e84;
+}
