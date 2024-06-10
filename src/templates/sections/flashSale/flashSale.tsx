@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./flashSale.css";
-import ProductCard from "../../../components/productCard/ProductCard";
-import Loading from "../../../components/loading/Loading";
+import ProductCard from "../../../components/productCard/ProductCard.tsx";
+import Loading from "../../../components/loading/Loading.tsx";
 
-interface Product {
+export interface Product {
   id: string;
   title: string;
   image: string;
