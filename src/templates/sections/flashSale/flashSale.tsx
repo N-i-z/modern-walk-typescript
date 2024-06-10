@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./flashSale.css";
-import ProductCard from "../../../components/productCard/ProductCard.tsx";
-import Loading from "../../../components/loading/Loading.tsx";
+import ProductCard from "../../../components/productCard/ProductCard";
+import Loading from "../../../components/loading/Loading";
 
-interface product {
+interface Product {
   id: string;
   title: string;
   image: string;
@@ -14,9 +14,9 @@ interface product {
 }
 
 const FlashSale: React.FC = () => {
-  const [loading, setLoading] = useState(false);
-  const [menProducts, setMenProducts] = useState([]);
-  const [womenProducts, setWomenProducts] = useState([]);
+  const [loading, setLoading] = useState<boolean>(false);
+  const [menProducts, setMenProducts] = useState<Product[]>([]);
+  const [womenProducts, setWomenProducts] = useState<Product[]>([]);
 
   useEffect(() => {
     setLoading(true);
@@ -29,14 +29,18 @@ const FlashSale: React.FC = () => {
       ])
       .then(
         axios.spread((menRes, womenRes) => {
-          const menProducts = menRes.data.slice(0, 2).map((product) => ({
-            ...product,
-            category: "men",
-          }));
-          const womenProducts = womenRes.data.slice(0, 2).map((product) => ({
-            ...product,
-            category: "women",
-          }));
+          const menProducts: Product[] = menRes.data
+            .slice(0, 2)
+            .map((product: any) => ({
+              ...product,
+              category: "men",
+            }));
+          const womenProducts: Product[] = womenRes.data
+            .slice(0, 2)
+            .map((product: any) => ({
+              ...product,
+              category: "women",
+            }));
           setMenProducts(menProducts);
           setWomenProducts(womenProducts);
         })
@@ -48,7 +52,7 @@ const FlashSale: React.FC = () => {
   }, []);
 
   const renderAlternateProducts = () => {
-    const alternateProducts = [];
+    const alternateProducts: Product[] = [];
     const maxLength = Math.max(menProducts.length, womenProducts.length);
 
     for (let i = 0; i < maxLength; i++) {
@@ -72,7 +76,7 @@ const FlashSale: React.FC = () => {
             key={product.id}
             title={product.title}
             image={product.image}
-            price={product.price}
+            price={product.price.toString()}
             description={product.description}
             descriptionBackgroundColor={
               product.category === "men" ? "#2BD9AF" : "#FF5E84"
