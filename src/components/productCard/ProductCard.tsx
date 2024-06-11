@@ -8,7 +8,7 @@ interface ProductCardProps {
   image: string;
   price: number;
   description: string;
-  category: Category;
+  category: Category.MensClothing | Category.WomensClothing;
   descriptionBackgroundColor: string;
 }
 

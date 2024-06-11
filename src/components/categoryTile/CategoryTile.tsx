@@ -4,7 +4,7 @@ import "./CategoryTile.css";
 import { Category } from "../../enums/category";
 
 interface CategoryTileProps {
-  category: Category;
+  category: Category.MensClothing | Category.WomensClothing;
   url: string;
   className: string;
 }
