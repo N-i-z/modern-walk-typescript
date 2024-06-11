@@ -1,5 +1,6 @@
 import React from "react";
 import CategoryTile from "../../../components/categoryTile/CategoryTile.tsx";
+import "../../../App.css";
 import "./categories.css";
 
 const Categories = () => {
@@ -7,12 +8,12 @@ const Categories = () => {
     <div className="categories">
       <div className="catLink">
         <CategoryTile
-          className="men"
+          className="men-background"
           category="Men's clothing"
           url="/mens-clothing"
         />
         <CategoryTile
-          className="women"
+          className="women-background"
           category="Women's clothing"
           url="/womens-clothing"
         />

@@ -1,11 +1,13 @@
 import React from "react";
 import "./ProductCard.css";
+import "../../App.css";
 
 interface ProductCardProps {
   title: string;
   image: string;
   price: number;
   description: string;
+  category: string;
   descriptionBackgroundColor: string;
 }
 
@@ -14,6 +16,7 @@ const ProductCard = ({
   image,
   price,
   description,
+  category,
   descriptionBackgroundColor,
 }: ProductCardProps) => {
   return (
@@ -28,10 +31,9 @@ const ProductCard = ({
       </div>
       <div
         className={`card-description ${
-          descriptionBackgroundColor === "#2BD9AF"
-            ? "men-background"
-            : "women-background"
+          category === "Men's clothing" ? "men-background" : "women-background"
         }`}
+        style={{ backgroundColor: descriptionBackgroundColor }}
       >
         <h4>{`Rs ${price}`}</h4>
         <br />
