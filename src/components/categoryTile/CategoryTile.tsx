@@ -1,9 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./CategoryTile.css";
+import { Category } from "../../enums/category";
 
 interface CategoryTileProps {
-  category: string;
+  category: Category.MensClothing | Category.WomensClothing;
   url: string;
   className: string;
 }

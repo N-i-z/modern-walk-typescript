@@ -20,22 +20,6 @@
   display: flex; /* Flexbox to center content */
 }
 
-.category-tile.men {
-  background-color: #2bd9af;
-}
-
-.category-tile.women {
-  background-color: #ff5e84;
-}
-
-.category-tile.men:hover {
-  background-color: #239b85;
-}
-
-.category-tile.women:hover {
-  background-color: #cc4b69;
-}
-
 .category-tile .link {
   color: #ffffff;
   text-decoration: none;
