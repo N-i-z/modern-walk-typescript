@@ -1,11 +1,11 @@
 import React from "react";
-import FlashSale from "../sections/flash sale/flashSale.jsx";
-import Categories from "../sections/categories/categories.jsx";
+import FlashSale from "../sections/flashSale/flashSale.tsx";
+import Categories from "../sections/categories/categories.tsx";
 import Heading from "../../components/typography/Heading.tsx";
 import "../../components/productCard/ProductCard.css";
 import "../../components/typography/Heading.css";
 
-const Home = () => {
+const Home: React.FC = () => {
   return (
     <div className="home-page">
       <Heading variant="h2">Flash Sale</Heading>

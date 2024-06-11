@@ -3,11 +3,13 @@ import axios from "axios";
 import "./flashSale.css";
 import ProductCard from "../../../components/productCard/ProductCard.tsx";
 import Loading from "../../../components/loading/Loading.tsx";
+import { Product } from "../../../models/Product.tsx";
+import { Category } from "../../../enums/category.ts";
 
-const FlashSale = () => {
-  const [loading, setLoading] = useState(false);
-  const [menProducts, setMenProducts] = useState([]);
-  const [womenProducts, setWomenProducts] = useState([]);
+const FlashSale: React.FC = () => {
+  const [loading, setLoading] = useState<boolean>(false);
+  const [menProducts, setMenProducts] = useState<Product[]>([]);
+  const [womenProducts, setWomenProducts] = useState<Product[]>([]);
 
   useEffect(() => {
     setLoading(true);
@@ -20,14 +22,18 @@ const FlashSale = () => {
       ])
       .then(
         axios.spread((menRes, womenRes) => {
-          const menProducts = menRes.data.slice(0, 2).map((product) => ({
-            ...product,
-            category: "men",
-          }));
-          const womenProducts = womenRes.data.slice(0, 2).map((product) => ({
-            ...product,
-            category: "women",
-          }));
+          const menProducts: Product[] = menRes.data
+            .slice(0, 2)
+            .map((product: any) => ({
+              ...product,
+              category: Category.MensClothing,
+            }));
+          const womenProducts: Product[] = womenRes.data
+            .slice(0, 2)
+            .map((product: any) => ({
+              ...product,
+              category: Category.WomensClothing,
+            }));
           setMenProducts(menProducts);
           setWomenProducts(womenProducts);
         })
@@ -39,7 +45,7 @@ const FlashSale = () => {
   }, []);
 
   const renderAlternateProducts = () => {
-    const alternateProducts = [];
+    const alternateProducts: Product[] = [];
     const maxLength = Math.max(menProducts.length, womenProducts.length);
 
     for (let i = 0; i < maxLength; i++) {
@@ -65,8 +71,9 @@ const FlashSale = () => {
             image={product.image}
             price={product.price}
             description={product.description}
+            category={product.category}
             descriptionBackgroundColor={
-              product.category === "men" ? "#2BD9AF" : "#FF5E84"
+              product.category === Category.MensClothing ? "#2BD9AF" : "#FF5E84"
             }
           />
         ))

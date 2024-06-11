@@ -4,7 +4,7 @@ import "../../../App.css";
 import "./categories.css";
 import { Category } from "../../../enums/category.ts";
 
-const Categories = () => {
+const Categories: React.FC = () => {
   return (
     <div className="categories">
       <div className="catLink">

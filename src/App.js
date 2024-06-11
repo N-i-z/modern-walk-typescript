@@ -1,9 +1,9 @@
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Navbar } from "./components/navbar/navbar.tsx";
-import Home from "./templates/pages/homepage.template";
-import { MensClothing } from "./templates/pages/categoryPage.template";
-import { WomensClothing } from "./templates/pages/categoryPage.template";
+import Home from "./templates/pages/homepage.template.tsx";
+import { MensClothing } from "./templates/pages/categoryPage.template.tsx";
+import { WomensClothing } from "./templates/pages/categoryPage.template.tsx";
 
 const MensClothingCategory = () => {
   return <MensClothing />;
