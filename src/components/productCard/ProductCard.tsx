@@ -1,11 +1,14 @@
 import React from "react";
 import "./ProductCard.css";
+import "../../App.css";
+import { Category } from "../../enums/category.ts";
 
 interface ProductCardProps {
   title: string;
   image: string;
   price: number;
   description: string;
+  category: Category.MensClothing | Category.WomensClothing;
   descriptionBackgroundColor: string;
 }
 
@@ -14,6 +17,7 @@ const ProductCard = ({
   image,
   price,
   description,
+  category,
   descriptionBackgroundColor,
 }: ProductCardProps) => {
   return (
@@ -27,7 +31,11 @@ const ProductCard = ({
         <img src={image} alt={title} />
       </div>
       <div
-        className="card-description"
+        className={`card-description ${
+          category === Category.MensClothing
+            ? "men-background"
+            : "women-background"
+        }`}
         style={{ backgroundColor: descriptionBackgroundColor }}
       >
         <h4>{`Rs ${price}`}</h4>
