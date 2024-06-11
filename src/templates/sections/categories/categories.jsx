@@ -2,6 +2,7 @@ import React from "react";
 import CategoryTile from "../../../components/categoryTile/CategoryTile.tsx";
 import "../../../App.css";
 import "./categories.css";
+import { Category } from "../../../enums/category.ts";
 
 const Categories = () => {
   return (
@@ -9,12 +10,12 @@ const Categories = () => {
       <div className="catLink">
         <CategoryTile
           className="men-background"
-          category="Men's clothing"
+          category={Category.MensClothing}
           url="/mens-clothing"
         />
         <CategoryTile
           className="women-background"
-          category="Women's clothing"
+          category={Category.WomensClothing}
           url="/womens-clothing"
         />
       </div>

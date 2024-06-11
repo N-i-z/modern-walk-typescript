@@ -1,13 +1,14 @@
 import React from "react";
 import "./ProductCard.css";
 import "../../App.css";
+import { Category } from "../../enums/category.ts";
 
 interface ProductCardProps {
   title: string;
   image: string;
   price: number;
   description: string;
-  category: string;
+  category: Category;
   descriptionBackgroundColor: string;
 }
 
@@ -31,7 +32,9 @@ const ProductCard = ({
       </div>
       <div
         className={`card-description ${
-          category === "Men's clothing" ? "men-background" : "women-background"
+          category === Category.MensClothing
+            ? "men-background"
+            : "women-background"
         }`}
         style={{ backgroundColor: descriptionBackgroundColor }}
       >
