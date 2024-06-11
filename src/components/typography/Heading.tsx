@@ -1,8 +1,12 @@
 import React from "react";
-import PropTypes from "prop-types";
 import "./Heading.css";
 
-const Heading = ({ variant, children }) => {
+interface HeadingProps {
+  variant: "h1" | "h2" | "h3" | "h4";
+  children?: React.ReactNode;
+}
+
+const Heading = ({ variant, children }: HeadingProps) => {
   switch (variant) {
     case "h1":
       return <h1>{children}</h1>;
@@ -15,11 +19,6 @@ const Heading = ({ variant, children }) => {
     default:
       return <h1>{children}</h1>;
   }
-};
-
-Heading.propTypes = {
-  variant: PropTypes.oneOf(["h1", "h2", "h3", "h4"]),
-  children: PropTypes.node.isRequired,
 };
 
 export default Heading;
