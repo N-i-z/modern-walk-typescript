@@ -3,15 +3,8 @@ import axios from "axios";
 import "./flashSale.css";
 import ProductCard from "../../../components/productCard/ProductCard.tsx";
 import Loading from "../../../components/loading/Loading.tsx";
-
-export interface Product {
-  id: string;
-  title: string;
-  image: string;
-  price: number;
-  description: string;
-  category: string;
-}
+import { Product } from "../../../models/Product.tsx";
+import { Category } from "../../../enums/category.ts";
 
 const FlashSale: React.FC = () => {
   const [loading, setLoading] = useState<boolean>(false);
@@ -33,13 +26,13 @@ const FlashSale: React.FC = () => {
             .slice(0, 2)
             .map((product: any) => ({
               ...product,
-              category: "men",
+              category: Category.MensClothing,
             }));
           const womenProducts: Product[] = womenRes.data
             .slice(0, 2)
             .map((product: any) => ({
               ...product,
-              category: "women",
+              category: Category.WomensClothing,
             }));
           setMenProducts(menProducts);
           setWomenProducts(womenProducts);
@@ -78,8 +71,9 @@ const FlashSale: React.FC = () => {
             image={product.image}
             price={product.price}
             description={product.description}
+            category={product.category}
             descriptionBackgroundColor={
-              product.category === "men" ? "#2BD9AF" : "#FF5E84"
+              product.category === Category.MensClothing ? "#2BD9AF" : "#FF5E84"
             }
           />
         ))
