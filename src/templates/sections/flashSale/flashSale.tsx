@@ -3,24 +3,13 @@ import axios from "axios";
 import "./flashSale.css";
 import ProductCard from "../../../components/productCard/ProductCard.tsx";
 import Loading from "../../../components/loading/Loading.tsx";
-<<<<<<< HEAD
-interface FlashSaleProduct {
-  id: string;
-  title: string;
-  image: string;
-  price: number;
-  description: string;
-  category: string;
-}
-=======
 import { Product } from "../../../models/Product.tsx";
 import { Category } from "../../../enums/category.ts";
->>>>>>> development
 
 const FlashSale: React.FC = () => {
   const [loading, setLoading] = useState<boolean>(false);
-  const [MensCloting, setMensCloting] = useState<FlashSaleProduct[]>([]);
-  const [WomensClothing, setWomensClothing] = useState<FlashSaleProduct[]>([]);
+  const [MensCloting, setMensCloting] = useState<Product[]>([]);
+  const [WomensClothing, setWomensClothing] = useState<Product[]>([]);
 
   useEffect(() => {
     setLoading(true);
@@ -33,13 +22,13 @@ const FlashSale: React.FC = () => {
       ])
       .then(
         axios.spread((menRes, womenRes) => {
-          const MensCloting: FlashSaleProduct[] = menRes.data
+          const MensCloting: Product[] = menRes.data
             .slice(0, 2)
             .map((product: any) => ({
               ...product,
               category: Category.MensClothing,
             }));
-          const WomensClothing: FlashSaleProduct[] = womenRes.data
+          const WomensClothing: Product[] = womenRes.data
             .slice(0, 2)
             .map((product: any) => ({
               ...product,
@@ -56,7 +45,7 @@ const FlashSale: React.FC = () => {
   }, []);
 
   const renderAlternateProducts = () => {
-    const alternateProducts: FlashSaleProduct[] = [];
+    const alternateProducts: Product[] = [];
     const maxLength = Math.max(MensCloting.length, WomensClothing.length);
 
     for (let i = 0; i < maxLength; i++) {
