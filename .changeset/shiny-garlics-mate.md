@@ -2,4 +2,4 @@
 "modern-walk": minor
 ---
 
-refactor component structure
+- Refactor the component structure according to the Atomic Design Methodology
