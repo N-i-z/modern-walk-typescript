@@ -1,13 +1,6 @@
 import { useState, useEffect } from "react";
 import axios, { AxiosResponse } from "axios";
-
-export interface Product {
-  id: string;
-  title: string;
-  image: string;
-  price: number;
-  description: string;
-}
+import { Product } from "../models/Product";
 
 export interface UseFetchProductsReturn {
   loading: boolean;
