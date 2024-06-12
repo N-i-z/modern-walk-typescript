@@ -1,10 +1,6 @@
 import React from "react";
-import "./Heading.css";
-
-interface HeadingProps {
-  variant: "h1" | "h2" | "h3" | "h4";
-  children?: React.ReactNode;
-}
+import "./Heading.component.css";
+import { HeadingProps } from "./Heading.types";
 
 const Heading: React.FC<HeadingProps> = ({
   variant,

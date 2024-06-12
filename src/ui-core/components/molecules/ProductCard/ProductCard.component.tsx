@@ -1,16 +1,8 @@
 import React from "react";
-import "./ProductCard.css";
-import "../../App.css";
-import { Category } from "../../enums/category.ts";
-
-interface ProductCardProps {
-  title: string;
-  image: string;
-  price: number;
-  description: string;
-  category: Category.MensClothing | Category.WomensClothing;
-  descriptionBackgroundColor: string;
-}
+import "./ProductCard.component.css";
+import "../../../../App.css";
+import { Category } from "../../../../enums/category.ts";
+import { ProductCardProps } from "./ProductCard.types.tsx";
 
 const ProductCard = ({
   title,
