@@ -3,7 +3,7 @@ import "./Heading.css";
 
 interface HeadingProps {
   variant: "h1" | "h2" | "h3" | "h4";
-  children: JSX.Element | JSX.Element[] | undefined | string;
+  children?: React.ReactNode;
 }
 
 const Heading: React.FC<HeadingProps> = ({

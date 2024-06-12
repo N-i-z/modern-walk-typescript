@@ -3,19 +3,13 @@ import axios from "axios";
 import "./flashSale.css";
 import ProductCard from "../../../components/productCard/ProductCard.tsx";
 import Loading from "../../../components/loading/Loading.tsx";
-interface FlashSaleProduct {
-  id: string;
-  title: string;
-  image: string;
-  price: number;
-  description: string;
-  category: string;
-}
+import { Product } from "../../../models/Product.tsx";
+import { Category } from "../../../enums/category.ts";
 
 const FlashSale: React.FC = () => {
   const [loading, setLoading] = useState<boolean>(false);
-  const [MensCloting, setMensCloting] = useState<FlashSaleProduct[]>([]);
-  const [WomensClothing, setWomensClothing] = useState<FlashSaleProduct[]>([]);
+  const [MensClothing, setMensCloting] = useState<Product[]>([]);
+  const [WomensClothing, setWomensClothing] = useState<Product[]>([]);
 
   useEffect(() => {
     setLoading(true);
@@ -28,19 +22,19 @@ const FlashSale: React.FC = () => {
       ])
       .then(
         axios.spread((menRes, womenRes) => {
-          const MensCloting: FlashSaleProduct[] = menRes.data
+          const MensClothing: Product[] = menRes.data
             .slice(0, 2)
             .map((product: any) => ({
               ...product,
-              category: "men",
+              category: Category.MensClothing,
             }));
-          const WomensClothing: FlashSaleProduct[] = womenRes.data
+          const WomensClothing: Product[] = womenRes.data
             .slice(0, 2)
             .map((product: any) => ({
               ...product,
-              category: "women",
+              category: Category.WomensClothing,
             }));
-          setMensCloting(MensCloting);
+          setMensCloting(MensClothing);
           setWomensClothing(WomensClothing);
         })
       )
@@ -51,12 +45,12 @@ const FlashSale: React.FC = () => {
   }, []);
 
   const renderAlternateProducts = () => {
-    const alternateProducts: FlashSaleProduct[] = [];
-    const maxLength = Math.max(MensCloting.length, WomensClothing.length);
+    const alternateProducts: Product[] = [];
+    const maxLength = Math.max(MensClothing.length, WomensClothing.length);
 
     for (let i = 0; i < maxLength; i++) {
-      if (i < MensCloting.length) {
-        alternateProducts.push(MensCloting[i]);
+      if (i < MensClothing.length) {
+        alternateProducts.push(MensClothing[i]);
       }
       if (i < WomensClothing.length) {
         alternateProducts.push(WomensClothing[i]);
@@ -77,8 +71,9 @@ const FlashSale: React.FC = () => {
             image={product.image}
             price={product.price}
             description={product.description}
+            category={product.category}
             descriptionBackgroundColor={
-              product.category === "men" ? "#2BD9AF" : "#FF5E84"
+              product.category === Category.MensClothing ? "#2BD9AF" : "#FF5E84"
             }
           />
         ))
