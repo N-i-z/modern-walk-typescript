@@ -2,4 +2,4 @@
 "modern-walk": minor
 ---
 
-Setup versioning
+- Setup versioning
