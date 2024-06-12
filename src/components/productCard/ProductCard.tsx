@@ -1,14 +1,25 @@
 import React from "react";
-import PropTypes from "prop-types";
 import "./ProductCard.css";
+import "../../App.css";
+import { Category } from "../../enums/category.ts";
+
+interface ProductCardProps {
+  title: string;
+  image: string;
+  price: number;
+  description: string;
+  category: Category.MensClothing | Category.WomensClothing;
+  descriptionBackgroundColor: string;
+}
 
 const ProductCard = ({
   title,
   image,
   price,
   description,
+  category,
   descriptionBackgroundColor,
-}) => {
+}: ProductCardProps) => {
   return (
     <div className="card">
       <div className="card-title">
@@ -20,7 +31,11 @@ const ProductCard = ({
         <img src={image} alt={title} />
       </div>
       <div
-        className="card-description"
+        className={`card-description ${
+          category === Category.MensClothing
+            ? "men-background"
+            : "women-background"
+        }`}
         style={{ backgroundColor: descriptionBackgroundColor }}
       >
         <h4>{`Rs ${price}`}</h4>
@@ -31,15 +46,4 @@ const ProductCard = ({
   );
 };
 
-ProductCard.propTypes = {
-  title: PropTypes.string.isRequired,
-  image: PropTypes.string.isRequired,
-  price: PropTypes.number.isRequired,
-  description: PropTypes.string.isRequired,
-  descriptionBackgroundColor: PropTypes.string,
-};
-
-ProductCard.defaultProps = {
-  descriptionBackgroundColor: "#bff4e7",
-};
 export default ProductCard;

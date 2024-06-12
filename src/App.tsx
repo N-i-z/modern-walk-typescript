@@ -1,19 +1,20 @@
+import React from "react";
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { Navbar } from "./components/navbar/navbar";
-import Home from "./templates/pages/homepage.template";
-import { MensClothing } from "./templates/pages/categoryPage.template";
-import { WomensClothing } from "./templates/pages/categoryPage.template";
+import { Navbar } from "./components/navbar/navbar.tsx";
+import Home from "./templates/pages/homepage.template.tsx";
+import { MensClothing } from "./templates/pages/categoryPage.template.tsx";
+import { WomensClothing } from "./templates/pages/categoryPage.template.tsx";
 
-const MensClothingCategory = () => {
+const MensClothingCategory: React.FC = () => {
   return <MensClothing />;
 };
 
-const WomensClothingCategory = () => {
+const WomensClothingCategory: React.FC = () => {
   return <WomensClothing />;
 };
 
-function App() {
+const App: React.FC = () => {
   return (
     <div className="App">
       <Router>
@@ -26,6 +27,6 @@ function App() {
       </Router>
     </div>
   );
-}
+};
 
 export default App;

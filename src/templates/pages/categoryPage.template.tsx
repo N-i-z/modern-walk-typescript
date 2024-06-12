@@ -1,10 +1,15 @@
 import React from "react";
-import ProductCard from "../../components/productCard/ProductCard.jsx";
-import Heading from "../../components/typography/Heading.jsx";
+import ProductCard from "../../components/productCard/ProductCard.tsx";
+import Heading from "../../components/typography/Heading.tsx";
 import "../../components/productCard/ProductCard.css";
 import "../../components/typography/Heading.css";
-import useFetchProducts from "../../hooks/useFetchProducts";
-import Loading from "../../components/loading/Loading.jsx";
+import useFetchProducts from "../../hooks/useFetchProducts.ts";
+import Loading from "../../components/loading/Loading.tsx";
+import { Product } from "../../models/Product.tsx";
+interface ProductsProps {
+  url: string;
+  descriptionBackgroundColor: string;
+}
 
 export function WomensClothing() {
   return (
@@ -34,7 +39,10 @@ export function MensClothing() {
   );
 }
 
-const Products = ({ url, descriptionBackgroundColor }) => {
+const Products: React.FC<ProductsProps> = ({
+  url,
+  descriptionBackgroundColor,
+}) => {
   const { loading, data } = useFetchProducts(url);
 
   return (
@@ -51,7 +59,15 @@ const Products = ({ url, descriptionBackgroundColor }) => {
   );
 };
 
-const ProductList = ({ products, descriptionBackgroundColor }) => {
+interface ProductListProps {
+  products: Product[];
+  descriptionBackgroundColor: string;
+}
+
+const ProductList: React.FC<ProductListProps> = ({
+  products,
+  descriptionBackgroundColor,
+}) => {
   return (
     <div className="products-container">
       {products.map((product) => (
@@ -62,6 +78,7 @@ const ProductList = ({ products, descriptionBackgroundColor }) => {
           price={product.price}
           description={product.description}
           descriptionBackgroundColor={descriptionBackgroundColor}
+          category={product.category}
         />
       ))}
     </div>
