@@ -8,8 +8,8 @@ import { Category } from "../../../enums/category.ts";
 
 const FlashSale: React.FC = () => {
   const [loading, setLoading] = useState<boolean>(false);
-  const [menProducts, setMenProducts] = useState<Product[]>([]);
-  const [womenProducts, setWomenProducts] = useState<Product[]>([]);
+  const [MensClothing, setMensCloting] = useState<Product[]>([]);
+  const [WomensClothing, setWomensClothing] = useState<Product[]>([]);
 
   useEffect(() => {
     setLoading(true);
@@ -22,20 +22,20 @@ const FlashSale: React.FC = () => {
       ])
       .then(
         axios.spread((menRes, womenRes) => {
-          const menProducts: Product[] = menRes.data
+          const MensClothing: Product[] = menRes.data
             .slice(0, 2)
             .map((product: any) => ({
               ...product,
               category: Category.MensClothing,
             }));
-          const womenProducts: Product[] = womenRes.data
+          const WomensClothing: Product[] = womenRes.data
             .slice(0, 2)
             .map((product: any) => ({
               ...product,
               category: Category.WomensClothing,
             }));
-          setMenProducts(menProducts);
-          setWomenProducts(womenProducts);
+          setMensCloting(MensClothing);
+          setWomensClothing(WomensClothing);
         })
       )
       .catch((error) => {
@@ -46,14 +46,14 @@ const FlashSale: React.FC = () => {
 
   const renderAlternateProducts = () => {
     const alternateProducts: Product[] = [];
-    const maxLength = Math.max(menProducts.length, womenProducts.length);
+    const maxLength = Math.max(MensClothing.length, WomensClothing.length);
 
     for (let i = 0; i < maxLength; i++) {
-      if (i < menProducts.length) {
-        alternateProducts.push(menProducts[i]);
+      if (i < MensClothing.length) {
+        alternateProducts.push(MensClothing[i]);
       }
-      if (i < womenProducts.length) {
-        alternateProducts.push(womenProducts[i]);
+      if (i < WomensClothing.length) {
+        alternateProducts.push(WomensClothing[i]);
       }
     }
     return alternateProducts;

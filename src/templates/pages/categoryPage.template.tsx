@@ -3,17 +3,9 @@ import ProductCard from "../../components/productCard/ProductCard.tsx";
 import Heading from "../../components/typography/Heading.tsx";
 import "../../components/productCard/ProductCard.css";
 import "../../components/typography/Heading.css";
-import useFetchProducts from "../../hooks/useFetchProducts";
+import useFetchProducts from "../../hooks/useFetchProducts.ts";
 import Loading from "../../components/loading/Loading.tsx";
-
-interface Product {
-  id: string;
-  title: string;
-  image: string;
-  price: number;
-  description: string;
-}
-
+import { Product } from "../../models/Product.tsx";
 interface ProductsProps {
   url: string;
   descriptionBackgroundColor: string;
@@ -86,6 +78,7 @@ const ProductList: React.FC<ProductListProps> = ({
           price={product.price}
           description={product.description}
           descriptionBackgroundColor={descriptionBackgroundColor}
+          category={product.category}
         />
       ))}
     </div>
