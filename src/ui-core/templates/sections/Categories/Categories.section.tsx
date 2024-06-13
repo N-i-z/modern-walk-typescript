@@ -1,6 +1,5 @@
 import React from "react";
 import CategoryTile from "../../../components/atoms/CategoryTile/CategoryTile.component.tsx";
-import "../../../../App.css";
 import "./Categories.section.css";
 import { Category } from "../../../../enums/category.ts";
 

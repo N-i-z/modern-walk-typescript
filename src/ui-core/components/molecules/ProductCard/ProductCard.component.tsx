@@ -1,6 +1,5 @@
 import React from "react";
 import "./ProductCard.component.css";
-import "../../../../App.css";
 import { Category } from "../../../../enums/category.ts";
 import { ProductCardProps } from "./ProductCard.types.tsx";
 

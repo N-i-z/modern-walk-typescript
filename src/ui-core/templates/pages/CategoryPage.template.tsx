@@ -1,8 +1,6 @@
 import React from "react";
 import ProductCard from "../../components/molecules/ProductCard/ProductCard.component.tsx";
 import Heading from "../../components/atoms/Typography/Heading.component.tsx";
-import "../../components/molecules/ProductCard/ProductCard.component.css";
-import "../../components/atoms/Typography/Heading.component.css";
 import useFetchProducts from "../../../hooks/useFetchProducts.ts";
 import Loading from "../../components/atoms/Loading/Loading.component.tsx";
 import { ProductListProps, ProductsProps } from "./template.types.tsx";
