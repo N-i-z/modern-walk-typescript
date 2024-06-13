@@ -1,10 +1,10 @@
 import React from "react";
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { Navbar } from "./components/navbar/navbar.tsx";
-import Home from "./templates/pages/homepage.template.tsx";
-import { MensClothing } from "./templates/pages/categoryPage.template.tsx";
-import { WomensClothing } from "./templates/pages/categoryPage.template.tsx";
+import { Navbar } from "./ui-core/components";
+import { Home } from "./ui-core/templates";
+import { MensClothing } from "./ui-core/templates";
+import { WomensClothing } from "./ui-core/templates";
 
 const MensClothingCategory: React.FC = () => {
   return <MensClothing />;
