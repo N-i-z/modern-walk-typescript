@@ -1,15 +1,9 @@
 import React from "react";
-import ProductCard from "../../components/productCard/ProductCard.tsx";
-import Heading from "../../components/typography/Heading.tsx";
-import "../../components/productCard/ProductCard.css";
-import "../../components/typography/Heading.css";
-import useFetchProducts from "../../hooks/useFetchProducts.ts";
-import Loading from "../../components/loading/Loading.tsx";
-import { Product } from "../../models/Product.tsx";
-interface ProductsProps {
-  url: string;
-  descriptionBackgroundColor: string;
-}
+import ProductCard from "../../components/molecules/ProductCard/ProductCard.component.tsx";
+import Heading from "../../components/atoms/Typography/Heading.component.tsx";
+import useFetchProducts from "../../../hooks/useFetchProducts.ts";
+import Loading from "../../components/atoms/Loading/Loading.component.tsx";
+import { ProductListProps, ProductsProps } from "./template.types.tsx";
 
 export function WomensClothing() {
   return (
@@ -58,11 +52,6 @@ const Products: React.FC<ProductsProps> = ({
     </div>
   );
 };
-
-interface ProductListProps {
-  products: Product[];
-  descriptionBackgroundColor: string;
-}
 
 const ProductList: React.FC<ProductListProps> = ({
   products,

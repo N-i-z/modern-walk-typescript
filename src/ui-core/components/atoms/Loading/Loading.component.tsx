@@ -1,9 +1,6 @@
 import React from "react";
-import "./Loading.css";
-
-interface LoadingProps {
-  message?: string;
-}
+import "./Loading.component.css";
+import type { LoadingProps } from "./Loading.types";
 
 const Loading = ({ message = "Loading..." }: LoadingProps) => {
   return (

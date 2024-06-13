@@ -1,13 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./CategoryTile.css";
-import { Category } from "../../enums/category";
-
-interface CategoryTileProps {
-  category: Category.MensClothing | Category.WomensClothing;
-  url: string;
-  className: string;
-}
+import "./CategoryTile.component.css";
+import type { CategoryTileProps } from "./CategoryTile.types";
 
 const CategoryTile = ({ category, url, className }: CategoryTileProps) => {
   return (
