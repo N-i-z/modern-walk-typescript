@@ -5,8 +5,7 @@ import App from "./App.tsx";
 // import reportWebVitals from './reportWebVitals';
 import { ClerkProvider } from "@clerk/clerk-react";
 
-const clerkPubKey =
-  "pk_test_Y2hhbXBpb24tZmVycmV0LTEyLmNsZXJrLmFjY291bnRzLmRldiQ";
+const clerkPubKey = process.env.REACT_APP_CLERK_PUBLISHABLE_KEY as string;
 
 const rootElement = document.getElementById("root");
 
