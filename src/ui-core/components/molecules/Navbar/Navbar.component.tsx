@@ -7,6 +7,8 @@ import {
   SignInButton,
   UserButton,
 } from "@clerk/clerk-react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEye } from "@fortawesome/free-solid-svg-icons";
 
 export const Navbar = () => {
   return (
@@ -21,7 +23,9 @@ export const Navbar = () => {
           <Link to={"/mens-clothing"}>Men</Link>
           <Link to={"/womens-clothing"}>Women</Link>
           <SignedIn>
-            <Link to={"/watchlist"}>Watchlist</Link>
+            <Link to={"/watchlist"} className="watchlist-icon">
+              <FontAwesomeIcon icon={faEye} />
+            </Link>
           </SignedIn>
         </b>
       </div>
