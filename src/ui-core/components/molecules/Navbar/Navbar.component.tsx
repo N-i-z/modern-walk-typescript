@@ -20,6 +20,9 @@ export const Navbar = () => {
         <b>
           <Link to={"/mens-clothing"}>Men</Link>
           <Link to={"/womens-clothing"}>Women</Link>
+          <SignedIn>
+            <Link to={"/watchlist"}>Watchlist</Link>
+          </SignedIn>
         </b>
       </div>
       <div className="auth-buttons">
