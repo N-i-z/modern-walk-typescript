@@ -1,18 +1,17 @@
-/* Apply box-sizing to all elements for consistent layout */
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
 }
 
-.watchlist-card-image {
+.cart-card-image {
   width: auto;
   height: 30vh;
   transition: transform 0.3s ease;
   margin: 20px;
 }
 
-.watchlist-card-image:hover {
+.cart-card-image:hover {
   transform: scale(1.1);
 }
 
@@ -29,7 +28,7 @@
   justify-content: space-between;
   align-items: center;
   box-shadow: 10px 15px 20px 0px #00000026;
-  overflow: hidden; /* Ensure content doesn't overflow */
+  overflow: hidden;
 }
 
 .card .card-title h3 {

@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { WatchlistContext } from "../context/WatchListContext";
 import { useUser } from "@clerk/clerk-react";
-import { WatchlistItemProps } from "../context/WatchListContextProps";
+import { WatchlistItemProps } from "../context/Context.types";
 
 const useWatchlist = (
   itemId: string,

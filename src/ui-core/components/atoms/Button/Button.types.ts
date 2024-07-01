@@ -6,3 +6,10 @@ export interface WatchlistButtonProps {
   itemPrice: Product["price"];
   itemImage: Product["image"];
 }
+
+export interface CartButtonProps {
+  itemId: Product["id"];
+  itemName: Product["title"];
+  itemPrice: Product["price"];
+  itemImage: Product["image"];
+}

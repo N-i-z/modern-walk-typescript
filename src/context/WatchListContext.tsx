@@ -5,10 +5,7 @@ import React, {
   ReactNode,
   useEffect,
 } from "react";
-import {
-  WatchlistContextProps,
-  WatchlistItemProps,
-} from "./WatchListContextProps";
+import { WatchlistContextProps, WatchlistItemProps } from "./Context.types";
 import { useUser } from "@clerk/clerk-react";
 
 export const WatchlistContext = createContext<

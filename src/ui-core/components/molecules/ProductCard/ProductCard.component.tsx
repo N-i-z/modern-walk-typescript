@@ -1,8 +1,10 @@
 import React from "react";
 import "./ProductCard.component.css";
-import { Category } from "../../../../enums/category.ts";
-import { ProductCardProps } from "./ProductCard.types.tsx";
-import WatchlistButton from "../../atoms/Button/WatchlistButton.component.tsx";
+import { Category } from "../../../../enums/category";
+import { ProductCardProps } from "./ProductCard.types";
+import WatchlistButton from "../../atoms/Button/WatchlistButton.component";
+import CartButton from "../../atoms/Button/CartButton.component";
+
 const ProductCard = ({
   title,
   image,
@@ -32,12 +34,20 @@ const ProductCard = ({
         <h4>{`Rs ${price}`}</h4>
         <br />
         <p>{description}</p>
-        <WatchlistButton
-          itemId={title}
-          itemName={title}
-          itemImage={image}
-          itemPrice={price}
-        />
+        <div className="button-container">
+          <WatchlistButton
+            itemId={title}
+            itemName={title}
+            itemImage={image}
+            itemPrice={price}
+          />
+          <CartButton
+            itemId={title}
+            itemName={title}
+            itemImage={image}
+            itemPrice={price}
+          />
+        </div>
       </div>
     </div>
   );

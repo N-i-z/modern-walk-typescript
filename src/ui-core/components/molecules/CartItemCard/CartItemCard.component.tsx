@@ -1,9 +1,9 @@
 import React from "react";
-import "./WatchlistItemCard.component.css";
-import { WatchlistItemCardProps } from "./WatchlistItemCard.types";
-import WatchlistButton from "../../atoms/Button/WatchlistButton.component";
+import "./CartItemCard.component.css";
+import { CartItemCardProps } from "./CartItemCard.types";
+import CartButton from "../../atoms/Button/CartButton.component";
 
-const WatchlistItemCard: React.FC<WatchlistItemCardProps> = ({
+const CartItemCard: React.FC<CartItemCardProps> = ({
   id,
   title,
   image,
@@ -17,13 +17,13 @@ const WatchlistItemCard: React.FC<WatchlistItemCardProps> = ({
         </h3>
       </div>
       <div>
-        <img className="watchlist-card-image" src={image} alt={title} />
+        <img className="cart-card-image" src={image} alt={title} />
       </div>
       <div className="description">
         <h4>{`Rs ${price}`}</h4>
         <br />
         <div className="button-container">
-          <WatchlistButton
+          <CartButton
             itemId={id}
             itemName={title}
             itemImage={image}
@@ -35,4 +35,4 @@ const WatchlistItemCard: React.FC<WatchlistItemCardProps> = ({
   );
 };
 
-export default WatchlistItemCard;
+export default CartItemCard;

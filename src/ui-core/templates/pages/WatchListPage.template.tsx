@@ -9,7 +9,7 @@ const Watchlist: React.FC = () => {
 
   return (
     <div>
-      <Heading variant="h2">My Watchlist</Heading>
+      <Heading variant="h2">Your Watchlist</Heading>
       <div className="watchlist-container">
         {watchlist.length === 0 ? (
           <h3 className="empty-message">Your watchlist is empty</h3>
