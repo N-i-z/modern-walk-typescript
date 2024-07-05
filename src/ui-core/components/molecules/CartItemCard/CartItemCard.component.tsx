@@ -1,5 +1,4 @@
 import React from "react";
-import "./CartItemCard.component.css";
 import { CartItemCardProps } from "./CartItemCard.types";
 import CartButton from "../../atoms/Button/CartButton.component";
 
@@ -8,29 +7,33 @@ const CartItemCard: React.FC<CartItemCardProps> = ({
   title,
   image,
   price,
+  quantity,
 }) => {
+  const totalPrice = price * quantity;
+
   return (
-    <div className="card">
-      <div className="card-title">
-        <h3>
-          <b>{title}</b>
-        </h3>
-      </div>
-      <div>
-        <img className="cart-card-image" src={image} alt={title} />
-      </div>
-      <div className="description">
-        <h4>{`Rs ${price}`}</h4>
-        <br />
-        <div className="button-container">
-          <CartButton
-            itemId={id}
-            itemName={title}
-            itemImage={image}
-            itemPrice={price}
-          />
+    <div className="flex justify-between items-center bg-white rounded-3xl w-[120%] h-auto max-w-[1000px] p-6 m-2 shadow-lg">
+      <div className="flex items-center">
+        <img
+          className="w-24 h-auto object-cover rounded-lg mr-4"
+          src={image}
+          alt={title}
+        />
+        <div className="flex flex-col items-center justify-center p-7">
+          <h3 className="text-xl text-black justify-center font-bold max-w-90">
+            {title}
+          </h3>
+          <p className="text-lg text-blue-500 font-bold">{`Rs ${totalPrice.toFixed(
+            2
+          )} `}</p>
         </div>
       </div>
+      <CartButton
+        itemId={id}
+        itemName={title}
+        itemImage={image}
+        itemPrice={price}
+      />
     </div>
   );
 };

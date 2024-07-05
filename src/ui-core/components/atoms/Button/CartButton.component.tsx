@@ -7,7 +7,6 @@ import {
   faTrash,
 } from "@fortawesome/free-solid-svg-icons";
 import useCart from "../../../../hooks/useCart";
-import "./Button.component.css";
 import { CartButtonProps } from "./Button.types";
 
 const CartButton: React.FC<CartButtonProps> = ({
@@ -27,25 +26,25 @@ const CartButton: React.FC<CartButtonProps> = ({
   } = useCart(itemId, itemName, itemPrice, itemImage);
 
   return (
-    <div className="cart-button-container">
+    <div className="flex justify-center items-center gap-4 mt-2 mb-4">
       {isInCart ? (
-        <div className="quantity-controls">
+        <div className="flex items-center">
           <button
             onClick={() => decreaseCartQuantity(itemId)}
-            className="quantity-button"
+            className="h-12 w-12 flex items-center justify-center bg-white text-black border-none rounded cursor-pointer"
           >
             <FontAwesomeIcon icon={faMinus} />
           </button>
-          <span className="quantity">{cartQuantity}</span>
+          <span className="pb-1 ml-4 mr-4">{cartQuantity}</span>
           <button
             onClick={() => increaseCartQuantity(itemId)}
-            className="quantity-button"
+            className="h-12 w-12 flex items-center justify-center bg-white text-black border-none rounded cursor-pointer"
           >
             <FontAwesomeIcon icon={faPlus} />
           </button>
           <button
             onClick={() => removeFromCart(itemId)}
-            className="remove-button"
+            className="pb-1 h-12 w-12 ml-2 bg-none text-black border-none rounded cursor-pointer hover:animate-vibrate"
           >
             <FontAwesomeIcon icon={faTrash} />
           </button>
@@ -54,7 +53,9 @@ const CartButton: React.FC<CartButtonProps> = ({
         <button
           onClick={handleCartToggle}
           disabled={!isSignedIn}
-          className={`cart-button ${isInCart ? "in-cart" : ""}`}
+          className={`h-12 w-12 flex items-center justify-center border-none rounded cursor-pointer transition-colors ${
+            isInCart ? "bg-gray-400 text-black" : "bg-white text-black"
+          }`}
         >
           <FontAwesomeIcon icon={faShoppingCart} />
         </button>

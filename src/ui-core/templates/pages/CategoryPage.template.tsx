@@ -58,7 +58,7 @@ const ProductList: React.FC<ProductListProps> = ({
   descriptionBackgroundColor,
 }) => {
   return (
-    <div className="products-container">
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-10">
       {products.map((product) => (
         <ProductCard
           key={product.id}

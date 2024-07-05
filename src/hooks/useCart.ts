@@ -26,7 +26,6 @@ const useCart = (
   };
   const [isInCart, setIsInCart] = useState<boolean>(false);
   const { isSignedIn } = useUser();
-  const itemQuantity = getItemQuantity(itemId);
 
   useEffect(() => {
     setIsInCart(cart.some((item) => item.id === itemId));

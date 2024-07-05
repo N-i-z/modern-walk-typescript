@@ -2,7 +2,6 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import useWatchlist from "../../../../hooks/usewatchlist";
-import "./Button.component.css";
 import { WatchlistButtonProps } from "./Button.types";
 
 const WatchlistButton: React.FC<WatchlistButtonProps> = ({
@@ -22,7 +21,9 @@ const WatchlistButton: React.FC<WatchlistButtonProps> = ({
     <button
       onClick={handleWatchlistToggle}
       disabled={!isSignedIn}
-      className={`watchlist-button ${isInWatchlist ? "in-watchlist" : ""}`}
+      className={` mb-2 h-12 w-12 flex items-center justify-center border-none rounded cursor-pointer transition-colors ${
+        isInWatchlist ? "bg-gray-400 text-black" : "bg-white text-black"
+      }`}
     >
       <FontAwesomeIcon icon={isInWatchlist ? faEyeSlash : faEye} />
     </button>

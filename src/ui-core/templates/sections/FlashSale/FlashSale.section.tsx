@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import "./FlashSale.section.css";
 import ProductCard from "../../../components/molecules/ProductCard/ProductCard.component.tsx";
 import Loading from "../../../components/atoms/Loading/Loading.component.tsx";
 import { Product } from "../../../../models/Product.tsx";
@@ -60,11 +59,11 @@ const FlashSale: React.FC = () => {
   };
 
   return (
-    <div className="flash-sale-products">
+    <div className="flex items-center justify-center min-h-[600px]">
       {loading ? (
         <Loading message="Loading..." />
       ) : (
-        <div className="product-grid">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-[1vw] ml-[0.75vw] -mt-[7px]">
           {renderAlternateProducts().map((product) => (
             <ProductCard
               key={product.id}
