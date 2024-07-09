@@ -11,7 +11,7 @@ const CategoryTile = ({ category, url, className }: CategoryTileProps) => {
 
   return (
     <div
-      className={`flex justify-center items-center transition duration-200 ease-in-out transform rounded-[2vw] w-[46vw] h-[30vh] gap-[1vw] ${backgroundColor} ${className}`}
+      className={`flex justify-center items-center transition duration-200 ease-in-out transform rounded-[2vw] w-[46vw] h-[30vh] gap-[1vw] ${backgroundColor} ${className} z-20`}
     >
       <Link to={url} className="text-white no-underline text-7xl text-center">
         <b>{category}</b>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import {
   SignedIn,
@@ -9,12 +9,18 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingCart, faEye } from "@fortawesome/free-solid-svg-icons";
 import { useCart } from "../../../../context/CartContext";
+import { Cart } from "../../organisms/CartDrawer";
 
 export const Navbar = () => {
   const { cartQuantity } = useCart();
+  const [isCartOpen, setCartOpen] = useState(false);
+
+  const handleCartToggle = () => {
+    setCartOpen(!isCartOpen);
+  };
 
   return (
-    <div className="sticky top-0 w-full h-20 bg-gradient-to-r from-lightWomenBackground to-lightMenBackground flex justify-between items-center shadow-md">
+    <div className="sticky z-50 top-0 w-full h-20 bg-gradient-to-r from-lightWomenBackground to-lightMenBackground flex justify-between items-center shadow-md">
       <div className="mr-0 flex items-center">
         <Link to="/" className="flex items-center">
           <img
@@ -45,19 +51,17 @@ export const Navbar = () => {
             <FontAwesomeIcon icon={faEye} />
           </Link>
         </SignedIn>
-        <SignedIn>
-          <Link
-            to="/cart"
-            className="relative text-white text-3xl transition-opacity duration-300 hover:opacity-70 mr-4"
-          >
-            <FontAwesomeIcon icon={faShoppingCart} />
-            {cartQuantity > 0 && (
-              <div className="absolute top-5 right-[-0.625rem] bg-lightWomenBackground text-white rounded-full p-1 text-xs">
-                {cartQuantity > 99 ? "99+" : cartQuantity}
-              </div>
-            )}
-          </Link>
-        </SignedIn>
+        <div
+          className="relative text-white text-3xl transition-opacity duration-300 hover:opacity-70 mr-4 cursor-pointer"
+          onClick={handleCartToggle}
+        >
+          <FontAwesomeIcon icon={faShoppingCart} />
+          {cartQuantity > 0 && (
+            <div className="absolute top-5 right-[-0.625rem] bg-lightWomenBackground text-white rounded-full p-1 text-xs">
+              {cartQuantity > 99 ? "99+" : cartQuantity}
+            </div>
+          )}
+        </div>
       </div>
       <div className="flex items-center mr-4 ml-4 h-10">
         <SignedOut>
@@ -71,6 +75,7 @@ export const Navbar = () => {
           </div>
         </SignedIn>
       </div>
+      {isCartOpen && <Cart />}
     </div>
   );
 };

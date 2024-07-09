@@ -32,8 +32,6 @@ const useCart = (
   }, [cart, itemId]);
 
   const handleCartToggle = () => {
-    if (!isSignedIn) return;
-
     if (isInCart) {
       removeFromCart(itemId);
     } else {

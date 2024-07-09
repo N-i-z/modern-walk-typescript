@@ -13,17 +13,18 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
   const [cart, setCart] = useState<CartItemProps[]>([]);
 
   useEffect(() => {
-    if (user) {
-      const savedCart = localStorage.getItem(`cart_${user.id}`);
-      if (savedCart) {
-        setCart(JSON.parse(savedCart));
-      }
-    }
+    const savedCart = user
+      ? JSON.parse(localStorage.getItem(`cart_${user.id}`) || "[]")
+      : JSON.parse(sessionStorage.getItem("cart") || "[]");
+
+    setCart(savedCart);
   }, [user]);
 
   useEffect(() => {
     if (user) {
       localStorage.setItem(`cart_${user.id}`, JSON.stringify(cart));
+    } else {
+      sessionStorage.setItem("cart", JSON.stringify(cart));
     }
   }, [cart, user]);
 
@@ -58,11 +59,11 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
     );
   };
 
-  const cartQuantity = cart.reduce((total, item) => total + item.quantity, 0);
-
   const clearCart = () => {
     setCart([]);
   };
+
+  const cartQuantity = cart.reduce((total, item) => total + item.quantity, 0);
 
   const contextValue: CartContextProps = {
     cart,

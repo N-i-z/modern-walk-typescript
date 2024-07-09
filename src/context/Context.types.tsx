@@ -1,5 +1,4 @@
 import { Product } from "../models/Product";
-
 export interface WatchlistItemProps {
   id: Product["id"];
   name: Product["title"];
@@ -30,4 +29,10 @@ export interface CartContextProps {
   decreaseCartQuantity: (id: Product["id"]) => void;
   cartQuantity: number;
   clearCart: () => void;
+}
+
+export interface DrawerContextProps {
+  isDrawerOpen: boolean;
+  openDrawer: () => void;
+  closeDrawer: () => void;
 }

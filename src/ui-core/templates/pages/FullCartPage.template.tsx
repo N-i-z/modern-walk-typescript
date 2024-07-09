@@ -1,9 +1,11 @@
 import React, { useContext } from "react";
 import { CartContext } from "../../../context/CartContext";
 import { Heading } from "../../components";
-import { CartItemCard } from "../../components";
+import { FullCartItemCard } from "../../components";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faShoppingBag } from "@fortawesome/free-solid-svg-icons";
 
-const Cart: React.FC = () => {
+const FullCart: React.FC = () => {
   const { cart, clearCart } = useContext(CartContext) || { cart: [] };
 
   const total = cart.reduce((accumulator, currentItem) => {
@@ -22,7 +24,7 @@ const Cart: React.FC = () => {
           <div className="flex flex-col items-center w-full gap-6 mt-5">
             {cart.map((item) => (
               <div className="w-full max-w-3xl">
-                <CartItemCard
+                <FullCartItemCard
                   key={item.id}
                   id={item.id}
                   title={item.name}
@@ -42,9 +44,17 @@ const Cart: React.FC = () => {
           </p>
           <button
             onClick={clearCart}
-            className="bg-red-500 text-white border-none py-2 px-5 cursor-pointer rounded-lg hover:bg-red-700"
+            className="bg-womenBackground text-white border-none py-2 px-3 cursor-pointer rounded-lg hover:bg-womenBackgroundHover text-sm"
           >
             Clear Cart
+          </button>
+
+          <button
+            // onClick={handleCheckout}
+            className="bg-menBackground text-white border-none py-2 px-3 cursor-pointer rounded-lg hover:bg-menBackgroundHover text-sm"
+          >
+            <FontAwesomeIcon icon={faShoppingBag} className="mr-2" />
+            Checkout
           </button>
         </div>
       )}
@@ -52,4 +62,4 @@ const Cart: React.FC = () => {
   );
 };
 
-export default Cart;
+export default FullCart;

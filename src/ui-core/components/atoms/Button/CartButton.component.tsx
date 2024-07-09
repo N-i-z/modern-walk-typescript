@@ -18,7 +18,7 @@ const CartButton: React.FC<CartButtonProps> = ({
   const {
     isInCart,
     handleCartToggle,
-    isSignedIn,
+    // isSignedIn,
     cartQuantity,
     increaseCartQuantity,
     decreaseCartQuantity,
@@ -31,14 +31,14 @@ const CartButton: React.FC<CartButtonProps> = ({
         <div className="flex items-center">
           <button
             onClick={() => decreaseCartQuantity(itemId)}
-            className="h-12 w-12 flex items-center justify-center bg-white text-black border-none rounded cursor-pointer"
+            className="h-12 w-12 flex items-center justify-center bg-white text-black border-none rounded cursor-pointer hover:bg-gray-300 "
           >
             <FontAwesomeIcon icon={faMinus} />
           </button>
           <span className="pb-1 ml-4 mr-4">{cartQuantity}</span>
           <button
             onClick={() => increaseCartQuantity(itemId)}
-            className="h-12 w-12 flex items-center justify-center bg-white text-black border-none rounded cursor-pointer"
+            className="h-12 w-12 flex items-center justify-center bg-white text-black border-none rounded cursor-pointer hover:bg-gray-300 "
           >
             <FontAwesomeIcon icon={faPlus} />
           </button>
@@ -52,8 +52,8 @@ const CartButton: React.FC<CartButtonProps> = ({
       ) : (
         <button
           onClick={handleCartToggle}
-          disabled={!isSignedIn}
-          className={`h-12 w-12 flex items-center justify-center border-none rounded cursor-pointer transition-colors ${
+          // disabled={!isSignedIn}
+          className={`h-12 w-12 flex items-center justify-center border-none rounded cursor-pointer transition-colors hover:bg-gray-300 ${
             isInCart ? "bg-gray-400 text-black" : "bg-white text-black"
           }`}
         >
