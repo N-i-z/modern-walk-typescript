@@ -32,6 +32,12 @@ export const Navbar = () => {
       </div>
       <div className="flex items-end font-bold gap-12 ml-auto lg:text-xl lg:gap-8">
         <Link
+          to="/components"
+          className="text-white text-3xl transition-opacity duration-300 hover:opacity-70"
+        >
+          Components
+        </Link>
+        <Link
           to="/mens-clothing"
           className="text-white text-3xl transition-opacity duration-300 hover:opacity-70"
         >

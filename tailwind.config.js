@@ -1,6 +1,12 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./src/**/*.{js,jsx,ts,tsx}"],
+  darkMode: "class",
+  content: [
+    "./pages/**/*.{js,jsx,ts,tsx}",
+    "./components/**/*.{js,jsx,ts,tsx}",
+    "./app/**/*.{js,jsx,ts,tsx}",
+    "./src/**/*.{js,jsx,ts,tsx}",
+  ],
   theme: {
     extend: {
       colors: {
@@ -13,12 +19,68 @@ module.exports = {
         appHeader: "#282c34",
         appLink: "#61dafb",
         likeblack: "#0e0e0e",
-        bluep: "#0e42fd",
+        priceBlue: "#0e42fd",
+        elephantContrast: "#F0F2F5",
+        elephantGrey: "#F7F8F9",
+        inverseHoverClick: "#EBB888",
+        inverseHover: "#F7CDA6",
+        selected: "#D16400",
+        hover: "#F17502",
+        normal: "#EB8120",
+        inactiveBorder: "#C6CBD5",
+        activeBorder: "#7C89A1",
+        main: "#001948",
+        linkBlue: "#6A81FD",
+        linkHover: "#5467CE",
+        linkActive: "#4054C1",
+        linkDisabled: "#A5B0E3",
+        dangerRed: "#E1273D",
+        dangerGlow: "#ED9AA4",
+        dangerInactive: "#F0939E",
+        dangerDisabled: "#F9D4D8",
+        dangerHover: "#C01227",
+        dangerActive: "#9D0215",
+        border: "hsl(var(--border))",
+        input: "hsl(var(--input))",
+        ring: "hsl(var(--ring))",
+        background: "hsl(var(--background))",
+        foreground: "hsl(var(--foreground))",
+        primary: {
+          DEFAULT: "hsl(var(--primary))",
+          foreground: "hsl(var(--primary-foreground))",
+        },
+        secondary: {
+          DEFAULT: "hsl(var(--secondary))",
+          foreground: "hsl(var(--secondary-foreground))",
+        },
+        destructive: {
+          DEFAULT: "hsl(var(--destructive))",
+          foreground: "hsl(var(--destructive-foreground))",
+        },
+        muted: {
+          DEFAULT: "hsl(var(--muted))",
+          foreground: "hsl(var(--muted-foreground))",
+        },
+        accent: {
+          DEFAULT: "hsl(var(--accent))",
+          foreground: "hsl(var(--accent-foreground))",
+        },
+        popover: {
+          DEFAULT: "hsl(var(--popover))",
+          foreground: "hsl(var(--popover-foreground))",
+        },
+        card: {
+          DEFAULT: "hsl(var(--card))",
+          foreground: "hsl(var(--card-foreground))",
+        },
       },
       borderRadius: {
         "3xl": "50px",
         "50px": "50px",
         "40px": "40px",
+        lg: "var(--radius)",
+        md: "calc(var(--radius) - 2px)",
+        sm: "calc(var(--radius) - 4px)",
       },
       boxShadow: {
         lg: "10px 15px 20px 0px #00000026",
@@ -49,15 +111,24 @@ module.exports = {
           "50%": { transform: "translateX(2px)" },
           "75%": { transform: "translateX(-2px)" },
         },
+        "accordion-down": {
+          from: { height: "0" },
+          to: { height: "var(--radix-accordion-content-height)" },
+        },
+        "accordion-up": {
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: "0" },
+        },
       },
       spacing: {
         96: "24rem",
         "550px": "550px",
         "800px": "800px",
       },
-
       animation: {
         vibrate: "vibrate 0.2s linear infinite",
+        "accordion-down": "accordion-down 0.2s ease-out",
+        "accordion-up": "accordion-up 0.2s ease-out",
       },
       lineClamp: {
         4: "4",
@@ -65,6 +136,7 @@ module.exports = {
     },
   },
   plugins: [
+    require("tailwindcss-animate"),
     function ({ addUtilities }) {
       const newUtilities = {
         ".line-clamp-4": {
@@ -74,7 +146,6 @@ module.exports = {
           overflow: "hidden",
         },
       };
-
       addUtilities(newUtilities, ["responsive", "hover"]);
     },
   ],

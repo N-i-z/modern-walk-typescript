@@ -27,7 +27,7 @@ const ProductCard = ({
         className={`card-description w-full h-[250px] p-5 rounded-t-[40px] flex flex-col items-center relative`}
         style={{ backgroundColor: descriptionBackgroundColor }}
       >
-        <h4 className="text-bluep font-bold text-3xl m-0">{`Rs ${price}`}</h4>
+        <h4 className="text-priceBlue font-bold text-3xl m-0">{`Rs ${price}`}</h4>
         <br />
         <p className="text-[16px] leading-6 text-center line-clamp-3 mx-8">
           {description}

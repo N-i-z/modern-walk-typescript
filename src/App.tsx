@@ -2,7 +2,7 @@ import React from "react";
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Navbar } from "./ui-core/components";
-import { Home, WatchList, FullCart } from "./ui-core/templates";
+import { Home, WatchList, FullCart, Components } from "./ui-core/templates";
 import { MensClothing } from "./ui-core/templates";
 import { WomensClothing } from "./ui-core/templates";
 import { SignedIn, SignedOut, RedirectToSignIn } from "@clerk/clerk-react";
@@ -33,6 +33,8 @@ const App: React.FC = () => {
                 path="/womens-clothing"
                 element={<WomensClothingCategory />}
               />
+              <Route path="/components" element={<Components />} />
+
               <Route
                 path="/watchlist"
                 element={
