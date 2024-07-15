@@ -55,7 +55,6 @@ const Components: React.FC = () => {
               id="option-one"
             />
             <RadioGroupItem value="option-two" id="option-two" />
-            <RadioGroupItem value="option-three" id="option-three" />
           </RadioGroup>
         </div>
       </div>
@@ -64,9 +63,6 @@ const Components: React.FC = () => {
         <div className="ml-[-112.5rem]">
           <div>
             <Checkbox disabled={true} />
-          </div>
-          <div>
-            <Checkbox />
           </div>
           <div>
             <Checkbox />
