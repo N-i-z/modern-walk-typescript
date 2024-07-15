@@ -2,6 +2,8 @@ import React from "react";
 import { Heading } from "../../components";
 import { Button } from "../../components/ui/button";
 import { Input } from "../../components/ui/input";
+import { RadioGroup, RadioGroupItem } from "../../components/ui/radio-group";
+import { Checkbox } from "../../components/ui/checkbox";
 
 const Components: React.FC = () => {
   return (
@@ -45,11 +47,31 @@ const Components: React.FC = () => {
       </div>
       <div>
         <Heading variant="h2">Radio buttons</Heading>
-        <div></div>
+        <div className="mx-14">
+          <RadioGroup defaultChecked={false}>
+            <RadioGroupItem
+              disabled={true}
+              value="option-one"
+              id="option-one"
+            />
+            <RadioGroupItem value="option-two" id="option-two" />
+            <RadioGroupItem value="option-three" id="option-three" />
+          </RadioGroup>
+        </div>
       </div>
       <div>
         <Heading variant="h2">Checkboxes</Heading>
-        <div></div>
+        <div className="ml-[-112.5rem]">
+          <div>
+            <Checkbox disabled={true} />
+          </div>
+          <div>
+            <Checkbox />
+          </div>
+          <div>
+            <Checkbox />
+          </div>
+        </div>
       </div>
     </div>
   );
