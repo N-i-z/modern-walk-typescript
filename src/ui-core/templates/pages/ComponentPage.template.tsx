@@ -4,10 +4,19 @@ import { Button } from "../../components/ui/button";
 import { Input } from "../../components/ui/input";
 import { RadioGroup, RadioGroupItem } from "../../components/ui/radio-group";
 import { Checkbox } from "../../components/ui/checkbox";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "../../components/ui/dropdown-menu";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
+import { faEllipsisV } from "@fortawesome/free-solid-svg-icons";
 
 const Components: React.FC = () => {
   return (
-    <div>
+    <div className="mb-[10rem]">
       <div>
         <Heading variant="h2">Buttons</Heading>
         <div className="my-3 ml-[-100rem]">
@@ -67,6 +76,34 @@ const Components: React.FC = () => {
           <div>
             <Checkbox className="mt-3" />
           </div>
+        </div>
+      </div>
+      <div>
+        <Heading variant="h2">Dropdown Menu with Arrow icon</Heading>
+        <div>
+          <DropdownMenu>
+            <DropdownMenuTrigger>
+              Global Action
+              <FontAwesomeIcon icon={faAngleDown} className="ml-2" />
+            </DropdownMenuTrigger>
+            <DropdownMenuContent>
+              <DropdownMenuItem>Delete Properties</DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
+        </div>
+      </div>
+      <div>
+        <Heading variant="h2">Three vertical dot Popup</Heading>
+        <div>
+          <DropdownMenu>
+            <DropdownMenuTrigger>
+              <FontAwesomeIcon icon={faEllipsisV} className="mx-1" />
+            </DropdownMenuTrigger>
+            <DropdownMenuContent>
+              <DropdownMenuItem>View Property</DropdownMenuItem>
+              <DropdownMenuItem>Delete</DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
         </div>
       </div>
     </div>
