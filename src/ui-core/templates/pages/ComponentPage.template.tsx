@@ -65,7 +65,7 @@ const Components: React.FC = () => {
             <Checkbox disabled={true} />
           </div>
           <div>
-            <Checkbox />
+            <Checkbox className="mt-3" />
           </div>
         </div>
       </div>
