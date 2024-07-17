@@ -18,6 +18,7 @@ module.exports = {
         womenBackgroundHover: "#cc4b69",
         appHeader: "#282c34",
         appLink: "#61dafb",
+        likeWhite: "#f5f5f5",
         likeblack: "#0e0e0e",
         priceBlue: "#0e42fd",
         elephantContrast: "#F0F2F5",
