@@ -1,16 +1,40 @@
 import React from "react";
 import { ProductCardProps } from "./ProductCard.types";
-import WatchlistButton from "../../atoms/Button/WatchlistButton.component";
-import CartButton from "../../atoms/Button/CartButton.component";
+import { Button } from "../../atoms/Button/button";
+import {
+  ChevronDown,
+  ChevronUp,
+  Eye,
+  EyeOff,
+  ShoppingCart,
+  Trash,
+} from "lucide-react";
+import useWatchlist from "../../../../hooks/usewatchlist";
+import useCart from "../../../../hooks/useCart";
 
 const ProductCard = ({
   title,
   image,
   price,
   description,
-  category,
   descriptionBackgroundColor,
 }: ProductCardProps) => {
+  const { isInWatchlist, handleWatchlistToggle, isSignedIn } = useWatchlist(
+    title, // itemId
+    title, // itemName
+    price,
+    image
+  );
+
+  const {
+    isInCart,
+    handleCartToggle,
+    cartQuantity,
+    increaseCartQuantity,
+    decreaseCartQuantity,
+    removeFromCart,
+  } = useCart(title, title, price, image);
+
   return (
     <div className="card bg-white rounded-[50px] w-[420px] h-[550px] max-w-[800px] m-2 mb-12 flex flex-col justify-between items-center shadow-lg overflow-hidden relative z-10">
       <div className="card-title max-w-xs mx-12 mt-6 text-center truncate">
@@ -33,18 +57,55 @@ const ProductCard = ({
           {description}
         </p>
         <div className="button-container flex justify-center items-center gap-4 absolute bottom-2">
-          <WatchlistButton
-            itemId={title}
-            itemName={title}
-            itemImage={image}
-            itemPrice={price}
-          />
-          <CartButton
-            itemId={title}
-            itemName={title}
-            itemImage={image}
-            itemPrice={price}
-          />
+          <Button
+            variant="card"
+            size="icon"
+            onClick={handleWatchlistToggle}
+            disabled={!isSignedIn}
+            className={` mb-2 ${
+              isInWatchlist ? "bg-gray-400 text-black" : "bg-white text-black"
+            }`}
+          >
+            {isInWatchlist ? <EyeOff size={24} /> : <Eye size={24} />}
+          </Button>
+          <div className="flex justify-center items-center gap-4 mt-2 mb-4">
+            {isInCart ? (
+              <div className="flex items-center">
+                <Button
+                  variant="card"
+                  size="icon"
+                  onClick={() => decreaseCartQuantity(title)}
+                >
+                  <ChevronDown />
+                </Button>
+                <span className="pb-1 ml-4 mr-4">{cartQuantity}</span>
+                <Button
+                  variant="card"
+                  size="icon"
+                  onClick={() => increaseCartQuantity(title)}
+                >
+                  <ChevronUp />
+                </Button>
+                <Button
+                  variant="card"
+                  size="icon"
+                  onClick={() => removeFromCart(title)}
+                  className="bg-transparent hover:bg-transparent hover:animate-vibrate"
+                >
+                  <Trash className="text-likeblack" />
+                </Button>
+              </div>
+            ) : (
+              <Button
+                variant="card"
+                size="icon"
+                onClick={handleCartToggle}
+                // disabled={!isSignedIn}
+              >
+                <ShoppingCart />
+              </Button>
+            )}
+          </div>
         </div>
       </div>
     </div>

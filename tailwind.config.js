@@ -20,6 +20,7 @@ module.exports = {
         appLink: "#61dafb",
         likeWhite: "#f5f5f5",
         likeblack: "#0e0e0e",
+        alertBlack: "#182132",
         priceBlue: "#0e42fd",
         elephantContrast: "#F0F2F5",
         elephantGrey: "#F7F8F9",
@@ -79,12 +80,11 @@ module.exports = {
         "3xl": "50px",
         "50px": "50px",
         "40px": "40px",
-        lg: "var(--radius)",
-        md: "calc(var(--radius) - 2px)",
-        sm: "calc(var(--radius) - 4px)",
       },
       boxShadow: {
-        lg: "10px 15px 20px 0px #00000026",
+        boxNormal: "0px 0px 30px 0px rgba(0, 25, 72, 0.15)",
+        boxHover: "0px 10px 40px 0px rgba(0, 25, 72, 0.25)",
+        boxSelected: "0px 5px 30px 0px rgba(0, 25, 72, 0.25)",
       },
       fontSize: {
         "2xs": "0.625rem",

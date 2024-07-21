@@ -1,9 +1,12 @@
 import React from "react";
 import { Heading } from "../../components";
-import { Button } from "../../components/ui/button";
-import { Input } from "../../components/ui/input";
-import { RadioGroup, RadioGroupItem } from "../../components/ui/radio-group";
-import { Checkbox } from "../../components/ui/checkbox";
+import { Button } from "../../components/atoms/Button/button";
+import { Input } from "../../components/atoms/Input/input";
+import {
+  RadioGroup,
+  RadioGroupItem,
+} from "../../components/atoms/RadioGroup/radio-group";
+import { Checkbox } from "../../components/atoms/Checkbox/checkbox";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -12,12 +15,38 @@ import {
   DropdownMenuRadioItem,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from "../../components/ui/dropdown-menu";
+} from "../../components/molecules/DropdownMenu/dropdown-menu";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleDown, faAngleUp } from "@fortawesome/free-solid-svg-icons";
 import { faEllipsisV } from "@fortawesome/free-solid-svg-icons";
 import { cn } from "../../../lib/utils";
 import { DropdownMenuCheckboxItemProps } from "@radix-ui/react-dropdown-menu";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogFooter,
+  DialogTrigger,
+  DialogClose,
+} from "../../components/molecules/Dialog/dialog";
+import {
+  ScrollArea,
+  ScrollBar,
+} from "../../components/atoms/ScrollArea/scroll-area";
+
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "../../components/molecules/AlertDialog/alert-dialog";
 
 type Checked = DropdownMenuCheckboxItemProps["checked"];
 
@@ -37,19 +66,19 @@ const Components: React.FC = () => {
       <div>
         <Heading variant="h2">Buttons</Heading>
         <div className="my-3 ml-[-100rem]">
-          <Button variant="primary" disabled className="rounded-[0.45rem] mr-3">
+          <Button variant="primary" disabled className="mr-3">
             Cancel
           </Button>
-          <Button variant="secondary" disabled className="rounded-[0.45rem]">
+          <Button variant="secondary" disabled>
             Add User
           </Button>
         </div>
 
         <div className="my-3 ml-[-100rem]">
-          <Button variant="primary" className="mt-3 rounded-[0.45rem] mr-3">
+          <Button variant="primary" className="mt-3 mr-3">
             Cancel
           </Button>
-          <Button variant="secondary" className="mt-3 rounded-[0.45rem]">
+          <Button variant="secondary" className="mt-3">
             Add User
           </Button>
         </div>
@@ -57,18 +86,30 @@ const Components: React.FC = () => {
       <div>
         <Heading variant="h2">Input Fields</Heading>
         <div>
-          <Input
-            disabled
-            isError={false}
-            placeholder="Disabled"
-            className="mx-14 w-550px my-5"
-          />
-          <Input isError placeholder="Error" className="mx-14 w-550px my-5" />
-          <Input
-            isError={false}
-            placeholder="Normal"
-            className="mx-14 w-550px my-5"
-          />
+          <div>
+            <label className="ml-[-108rem] mt-5">Username</label>
+            <Input
+              disabled
+              isError={false}
+              placeholder="Disabled"
+              className="mx-14 w-550px mb-5"
+            />
+          </div>
+          <div>
+            <label className="ml-[-108rem] mt-5">Username</label>
+            <Input isError placeholder="Error" className="mx-14 w-550px" />
+            <p className="ml-[-102rem] mb-5 text-dangerRed">
+              This is an error message
+            </p>
+          </div>
+          <div>
+            <label className="ml-[-108rem] mt-5">Username</label>
+            <Input
+              isError={false}
+              placeholder="Normal"
+              className="mx-14 w-550px mb-5"
+            />
+          </div>
         </div>
       </div>
       <div>
@@ -96,6 +137,83 @@ const Components: React.FC = () => {
         </div>
       </div>
       <div>
+        <Heading variant="h2">Popup Dialog</Heading>
+        <div className="ml-[-108rem]">
+          <Dialog>
+            <DialogTrigger>
+              <Button variant="primary">Open</Button>
+            </DialogTrigger>
+            <DialogContent>
+              <DialogHeader>
+                <DialogTitle>Jokester</DialogTitle>
+              </DialogHeader>
+              <ScrollArea className="h-[350px] w-[300px] rounded-md border-none">
+                <DialogDescription>
+                  Jokester began sneaking into the castle in the middle of the
+                  night and leaving jokes all over the place: under the king's
+                  pillow, in his soup, even in the royal toilet. The king was
+                  furious, but he couldn't seem to stop Jokester. And then, one
+                  day, the people of the kingdom discovered that the jokes left
+                  by Jokester were so funny that they couldn't help but laugh.
+                  And once they started laughing, they couldn't stop. Jokester
+                  began sneaking into the castle in the middle of the night and
+                  leaving jokes all over the place: under the king's pillow, in
+                  his soup, even in the royal toilet. The king was furious, but
+                  he couldn't seem to stop Jokester. And then, one day, the
+                  people of the kingdom discovered that the jokes left by
+                  Jokester were so funny that they couldn't help but laugh. And
+                  once they started laughing, they couldn't stop.Jokester began
+                  sneaking into the castle in the middle of the night and
+                  leaving jokes all over the place: under the king's pillow, in
+                  his soup, even in the royal toilet. The king was furious, but
+                  he couldn't seem to stop Jokester. And then, one day, the
+                  people of the kingdom discovered that the jokes left by
+                  Jokester were so funny that they couldn't help but laugh. And
+                  once they started laughing, they couldn't stop.Jokester began
+                  sneaking into the castle in the middle of the night and
+                  leaving jokes all over the place: under the king's pillow, in
+                  his soup, even in the royal toilet. The king was furious, but
+                  he couldn't seem to stop Jokester. And then, one day, the
+                  people of the kingdom discovered that the jokes left by
+                  Jokester were so funny that they couldn't help but laugh. And
+                  once they started laughing, they couldn't stop.
+                </DialogDescription>
+                <ScrollBar orientation="vertical" />
+              </ScrollArea>
+              <DialogFooter>
+                <Button variant="dotted">
+                  <DialogClose>Cancel</DialogClose>
+                </Button>
+                <Button variant="secondary">Confirm</Button>
+              </DialogFooter>
+            </DialogContent>
+          </Dialog>
+        </div>
+      </div>
+      <div>
+        <Heading variant="h2">Popup Alert Dialog</Heading>
+        <div className="ml-[-108rem]">
+          <AlertDialog>
+            <AlertDialogTrigger>
+              <Button variant="primary">Clear Cart</Button>
+            </AlertDialogTrigger>
+            <AlertDialogContent>
+              <AlertDialogHeader>
+                <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
+                <AlertDialogDescription>
+                  This action cannot be undone. This will permanently delete
+                  your account and remove your data from our servers.
+                </AlertDialogDescription>
+              </AlertDialogHeader>
+              <AlertDialogFooter>
+                <AlertDialogCancel>Cancel</AlertDialogCancel>
+                <AlertDialogAction>Continue</AlertDialogAction>
+              </AlertDialogFooter>
+            </AlertDialogContent>
+          </AlertDialog>
+        </div>
+      </div>
+      <div>
         <Heading variant="h2">Dropdown Menu</Heading>
         <div className="ml-[-105rem] mb-[6rem]">
           <DropdownMenu onOpenChange={setIsDDOpen}>
@@ -108,7 +226,10 @@ const Components: React.FC = () => {
               )}
             >
               Global Action
-              <FontAwesomeIcon icon={faAngleDown} className="ml-2" />
+              <FontAwesomeIcon
+                icon={isDDOpen ? faAngleUp : faAngleDown}
+                className="ml-2"
+              ></FontAwesomeIcon>{" "}
             </DropdownMenuTrigger>
             <DropdownMenuContent>
               <DropdownMenuItem className="text-activeBorder ">
@@ -127,7 +248,7 @@ const Components: React.FC = () => {
           <DropdownMenu onOpenChange={setIsVDOpen}>
             <DropdownMenuTrigger
               className={cn(
-                "px-2 py-1 ring-2 hover:ring-none hover:text-hover outline-none hover:bg-inverseHover",
+                "px-2 py-1 ring-2 hover:ring-none hover:text-hover outline-none hover:bg-inverseHover shadow-none hover:shadow-none active:shadow-none focus:shadow-none",
                 isVDOpen
                   ? "ring-0 text-selected bg-inverseHoverClick outline-none"
                   : " text-normal ring-0"
@@ -156,10 +277,10 @@ const Components: React.FC = () => {
             <DropdownMenuTrigger
               asChild
               className={cn(
-                "p-3 ring-2 hover:ring-hover hover:text-hover outline-none",
+                "p-3 hover:ring-0 outline-none hover:shadow-boxHover",
                 isCBDDOpen
-                  ? "ring-selected text-selected"
-                  : " text-normal ring-normal"
+                  ? "ring-selected text-selected active:shadow-boxSelected"
+                  : " text-normal ring-normal shadow-boxNormal"
               )}
             >
               <Button variant="primary">
@@ -172,21 +293,18 @@ const Components: React.FC = () => {
             </DropdownMenuTrigger>
             <DropdownMenuContent align="start" className="w-56">
               <DropdownMenuCheckboxItem
-                className="text-activeBorder"
                 checked={showOption1}
                 onCheckedChange={setShowOption1}
               >
                 Option 1
               </DropdownMenuCheckboxItem>
               <DropdownMenuCheckboxItem
-                className="text-activeBorder"
                 checked={showOption2}
                 onCheckedChange={setShowOption2}
               >
                 Option 2
               </DropdownMenuCheckboxItem>
               <DropdownMenuCheckboxItem
-                className="text-inactiveBorder"
                 checked={showDisabledOption}
                 onCheckedChange={setShowDisabledOption}
                 disabled={true}
@@ -204,10 +322,10 @@ const Components: React.FC = () => {
             <DropdownMenuTrigger
               asChild
               className={cn(
-                "p-3 ring-2 hover:ring-hover hover:text-hover outline-none",
+                "p-3 hover:ring-0 outline-none  hover:shadow-boxHover ",
                 isRBDDOpen
-                  ? "ring-selected text-selected"
-                  : " text-normal ring-normal"
+                  ? "ring-selected text-selected active:shadow-boxSelected"
+                  : " text-normal ring-normal shadow-boxNormal"
               )}
             >
               <Button variant="primary">
@@ -223,23 +341,11 @@ const Components: React.FC = () => {
                 value={position}
                 onValueChange={setPosition}
               >
-                <DropdownMenuRadioItem
-                  className="text-activeBorder"
-                  value="top"
-                >
-                  Top
-                </DropdownMenuRadioItem>
-                <DropdownMenuRadioItem
-                  className="text-activeBorder"
-                  value="bottom"
-                >
+                <DropdownMenuRadioItem value="top">Top</DropdownMenuRadioItem>
+                <DropdownMenuRadioItem value="bottom">
                   Bottom
                 </DropdownMenuRadioItem>
-                <DropdownMenuRadioItem
-                  className="text-inactiveBorder"
-                  value="right"
-                  disabled={true}
-                >
+                <DropdownMenuRadioItem value="right" disabled={true}>
                   Right
                 </DropdownMenuRadioItem>
               </DropdownMenuRadioGroup>
