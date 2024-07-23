@@ -4,6 +4,17 @@ import { Heading } from "../../components";
 import { FullCartItemCard } from "../../components";
 // import { ShoppingBag } from "lucide-react";
 import { Button } from "../../components/atoms/Button/button";
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "../../components/molecules/AlertDialog/alert-dialog";
 
 const FullCart: React.FC = () => {
   const { cart, clearCart } = useContext(CartContext) || { cart: [] };
@@ -42,9 +53,28 @@ const FullCart: React.FC = () => {
           <p className="text-lg font-bold mr-2">
             Total Price: Rs {total.toFixed(2)}
           </p>
-          <Button variant="primaryDanger" onClick={clearCart}>
-            Clear Cart
-          </Button>
+          <div>
+            <AlertDialog>
+              <AlertDialogTrigger>
+                <Button variant="primaryDanger">Clear Cart</Button>
+              </AlertDialogTrigger>
+              <AlertDialogContent>
+                <AlertDialogHeader>
+                  <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
+                  <AlertDialogDescription>
+                    Are you sure you want to clear your cart? This action will
+                    remove all items from your cart and cannot be undone.
+                  </AlertDialogDescription>
+                </AlertDialogHeader>
+                <AlertDialogFooter>
+                  <AlertDialogCancel>Cancel</AlertDialogCancel>
+                  <AlertDialogAction>
+                    <Button onClick={clearCart}>Continue</Button>
+                  </AlertDialogAction>
+                </AlertDialogFooter>
+              </AlertDialogContent>
+            </AlertDialog>
+          </div>
 
           <Button variant="secondary">
             {/* <ShoppingBag className="mr-2" /> */}

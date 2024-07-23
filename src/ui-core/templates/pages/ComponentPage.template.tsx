@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Heading } from "../../components";
 import { Button } from "../../components/atoms/Button/button";
 import { Input } from "../../components/atoms/Input/input";
@@ -47,6 +47,7 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "../../components/molecules/AlertDialog/alert-dialog";
+import { z } from "zod";
 
 type Checked = DropdownMenuCheckboxItemProps["checked"];
 
@@ -60,12 +61,30 @@ const Components: React.FC = () => {
     React.useState<Checked>(false);
   const [isRBDDOpen, setRBDDOpen] = React.useState(false);
   const [position, setPosition] = React.useState("bottom");
+  const [email, setEmail] = useState("");
+  const [error, setError] = useState("");
+
+  const emailSchema = z.string().email("Please enter a valid email address");
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { value } = e.target;
+    setEmail(value);
+
+    try {
+      emailSchema.parse(value);
+      setError("");
+    } catch (err) {
+      if (err instanceof z.ZodError) {
+        setError(err.errors[0].message);
+      }
+    }
+  };
 
   return (
     <div className="mb-[10rem]">
       <div>
         <Heading variant="h2">Buttons</Heading>
-        <div className="my-3 ml-[-100rem]">
+        <div className="my-3 flex start ml-12">
           <Button variant="primary" disabled className="mr-3">
             Cancel
           </Button>
@@ -74,7 +93,7 @@ const Components: React.FC = () => {
           </Button>
         </div>
 
-        <div className="my-3 ml-[-100rem]">
+        <div className="my-3 flex start ml-12">
           <Button variant="primary" className="mt-3 mr-3">
             Cancel
           </Button>
@@ -87,58 +106,63 @@ const Components: React.FC = () => {
         <Heading variant="h2">Input Fields</Heading>
         <div>
           <div>
-            <label className="ml-[-108rem] mt-5">Username</label>
+            <label className="flex start ml-12 mt-5">Username</label>
             <Input
               disabled
               isError={false}
               placeholder="Disabled"
-              className="mx-14 w-550px mb-5"
+              className="ml-12 w-550px mb-5 rounded-md focus:outline-none text-inactiveBorder"
             />
           </div>
+
           <div>
-            <label className="ml-[-108rem] mt-5">Username</label>
-            <Input isError placeholder="Error" className="mx-14 w-550px" />
-            <p className="ml-[-102rem] mb-5 text-dangerRed">
-              This is an error message
-            </p>
-          </div>
-          <div>
-            <label className="ml-[-108rem] mt-5">Username</label>
+            <label className="flex start ml-12 mt-5">Email</label>
             <Input
-              isError={false}
+              type="email"
+              id="email"
+              value={email}
+              onChange={handleChange}
+              isError={!!error}
               placeholder="Normal"
-              className="mx-14 w-550px mb-5"
+              className="ml-12 w-550px"
             />
+            {error && (
+              <span className="flex start ml-12  text-sm text-dangerRed">
+                {error}
+              </span>
+            )}
           </div>
         </div>
       </div>
       <div>
         <Heading variant="h2">Radio buttons</Heading>
-        <div className="mx-14">
+        <div className="flex start ml-12">
           <RadioGroup defaultChecked={false}>
             <RadioGroupItem
               disabled={true}
               value="option-one"
               id="option-one"
             />
-            <RadioGroupItem value="option-two" id="option-two" />
+            <span className="ml-[-0.5rem] rounded-lg px-2 pt-1 pb-[6px] hover:bg-inverseHover">
+              <RadioGroupItem value="option-two" id="option-two" />
+            </span>
           </RadioGroup>
         </div>
       </div>
       <div>
         <Heading variant="h2">Checkboxes</Heading>
-        <div className="ml-[-112.5rem]">
+        <div className="flex flex-col items-start ml-12">
           <div>
             <Checkbox disabled={true} />
           </div>
-          <div>
-            <Checkbox className="mt-3" />
+          <div className="mt-3">
+            <Checkbox />
           </div>
         </div>
       </div>
       <div>
         <Heading variant="h2">Popup Dialog</Heading>
-        <div className="ml-[-108rem]">
+        <div className="flex start ml-12">
           <Dialog>
             <DialogTrigger>
               <Button variant="primary">Open</Button>
@@ -192,7 +216,7 @@ const Components: React.FC = () => {
       </div>
       <div>
         <Heading variant="h2">Popup Alert Dialog</Heading>
-        <div className="ml-[-108rem]">
+        <div className="flex start ml-12">
           <AlertDialog>
             <AlertDialogTrigger>
               <Button variant="primary">Clear Cart</Button>
@@ -215,7 +239,7 @@ const Components: React.FC = () => {
       </div>
       <div>
         <Heading variant="h2">Dropdown Menu</Heading>
-        <div className="ml-[-105rem] mb-[6rem]">
+        <div className="flex start ml-12 mb-[6rem]">
           <DropdownMenu onOpenChange={setIsDDOpen}>
             <DropdownMenuTrigger
               className={cn(
@@ -244,7 +268,7 @@ const Components: React.FC = () => {
       </div>
       <div>
         <Heading variant="h2">Vertical Ellipsis Dropdown</Heading>
-        <div className="ml-[-112rem] mb-[10rem]">
+        <div className="flex start ml-12 mb-[8rem]">
           <DropdownMenu onOpenChange={setIsVDOpen}>
             <DropdownMenuTrigger
               className={cn(
@@ -272,7 +296,7 @@ const Components: React.FC = () => {
       </div>
       <div>
         <Heading variant="h2">Button with Checkbox Dropdown</Heading>
-        <div className="ml-[-108rem] mb-[9rem]">
+        <div className="flex start ml-12 mb-[9rem]">
           <DropdownMenu onOpenChange={setCBDDOpen}>
             <DropdownMenuTrigger
               asChild
@@ -317,7 +341,7 @@ const Components: React.FC = () => {
       </div>
       <div>
         <Heading variant="h2">Button with Radio Group Dropdown</Heading>
-        <div className="ml-[-108rem] mb-[9rem]">
+        <div className="flex start ml-12 mb-[9rem]">
           <DropdownMenu onOpenChange={setRBDDOpen}>
             <DropdownMenuTrigger
               asChild

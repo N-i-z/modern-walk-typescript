@@ -26,15 +26,15 @@ const FullCartItemCard: React.FC<CartItemCardProps> = ({
     <div className="flex justify-between items-center bg-white rounded-3xl w-[120%] h-auto max-w-[1000px] p-6 m-2 shadow-boxNormal hover:shadow-boxHover">
       <div className="flex ">
         <img
-          className="w-24 h-auto object-cover rounded-lg mr-4"
+          className="w-24 object-cover rounded-lg mr-4"
           src={image}
           alt={title}
         />
-        <div className=" p-7 justify-center items-center ml-[9rem]">
-          <h3 className="text-xl text-black font-bold max-w-[18rem] break-words truncate  text-justify">
+        <div className=" p-7 justify-center items-center ml-[3rem]">
+          <h3 className="text-xl text-black font-bold max-w-[25rem] break-words truncate text-justify">
             {title}
           </h3>
-          <p className="text-lg text-blue-500 font-bold absolute left-[50%]">{`Rs ${totalPrice.toFixed(
+          <p className="text-lg text-blue-500 font-bold text-justify">{`Rs ${totalPrice.toFixed(
             2
           )} `}</p>
         </div>

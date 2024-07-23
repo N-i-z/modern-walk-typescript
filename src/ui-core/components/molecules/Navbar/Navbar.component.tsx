@@ -31,7 +31,7 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "../AlertDialog/alert-dialog";
-
+import { ScrollArea, ScrollBar } from "../../atoms/ScrollArea/scroll-area";
 export const Navbar = () => {
   const { cart, cartQuantity } = useCart();
 
@@ -114,27 +114,30 @@ export const Navbar = () => {
                     <X className="text-main" />
                   </Button>
                 </DrawerClose>
-                <DrawerDescription>
-                  <div className="flex-1 grid place-items-center overflow-y-auto">
-                    {cart.length === 0 ? (
-                      <h3 className="mt-8 text-center">Your cart is empty</h3>
-                    ) : (
-                      <div className="grid items-center w-full ml-5 gap-2 mt-8">
-                        {cart.map((item) => (
-                          <div key={item.id} className="w-full max-w-[30rem]">
-                            <CartItemCard
-                              id={item.id}
-                              title={item.name}
-                              image={item.image}
-                              price={item.price}
-                              quantity={item.quantity}
-                            />
-                          </div>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-                </DrawerDescription>
+                <ScrollArea className="h-[990px] w-[610px] rounded-md border-none">
+                  <DrawerDescription>
+                    <div className="flex-1 grid place-items-center overflow-y-auto">
+                      {cart.length === 0 ? (
+                        <h3 className="mt-8 text-center">Your cart is empty</h3>
+                      ) : (
+                        <div className="grid items-center w-full ml-5 gap-2 mt-8">
+                          {cart.map((item) => (
+                            <div key={item.id} className="w-full max-w-[30rem]">
+                              <CartItemCard
+                                id={item.id}
+                                title={item.name}
+                                image={item.image}
+                                price={item.price}
+                                quantity={item.quantity}
+                              />
+                            </div>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  </DrawerDescription>
+                  <ScrollBar orientation="vertical" />
+                </ScrollArea>
               </DrawerHeader>
               <DrawerFooter>
                 <p className="text-base font-bold mr-4">
